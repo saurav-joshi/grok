@@ -1,0 +1,57 @@
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: iaasimov
+-- ------------------------------------------------------
+-- Server version	5.7.18-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `customer_app`
+--
+
+DROP TABLE IF EXISTS `customer_app`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customer_app` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `customer_id` bigint(20) DEFAULT NULL,
+  `application_name` varchar(255) DEFAULT NULL,
+  `application_id` varchar(100) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `expired_date` datetime DEFAULT NULL,
+  `request_limited` bigint(20) DEFAULT '10000',
+  `request_counted` bigint(20) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer_app`
+--
+
+LOCK TABLES `customer_app` WRITE;
+/*!40000 ALTER TABLE `customer_app` DISABLE KEYS */;
+INSERT INTO `customer_app` VALUES (1,4,'IaaSimov','3518019034437350284','2017-10-16 14:02:28',NULL,-1,3269),(6,4,'TestScriptApp','1248590550588513458','2017-10-04 20:51:02',NULL,-1,14063),(15,20,'Test App','2228157384330515052','2017-10-16 17:29:22',NULL,10000,0),(18,22,'Tested','4632578312221254849','2017-10-03 10:06:32',NULL,1000,0),(19,23,'Tastebot','977981050852730687','2017-10-24 14:41:52',NULL,10000,0),(20,24,'Ikatest','6785701948038107238','2017-04-25 04:26:41',NULL,1000,0),(21,4,'Quartz','2717515560771757142','2017-10-28 04:47:48',NULL,10000,0),(22,26,'sample','1144972121534441430','2017-09-10 05:19:36',NULL,100,0);
+/*!40000 ALTER TABLE `customer_app` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-11-10  8:40:48
