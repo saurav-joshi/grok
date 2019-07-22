@@ -1,4 +1,4 @@
-node('Iaasimov-BuildNode')
+node
 {  
   stage('Init') {
       echo 'Initializing build'
