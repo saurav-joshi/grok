@@ -4,11 +4,13 @@ node
       echo 'Initializing build'
       echo 'Checking out from SCM'
       checkout scm
+      mvnHome = tool 'M3'
   // end init stage
   }
 
   stage('Build') {
-    sh 'mvn clean package'
+    // sh 'mvn clean package'
+    sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
 
     // zip the DB scripts
     zip archive: true, dir: 'src\\main\\resources\\db_scripts', glob: '', zipFile: 'target/dbscripts.zip'
