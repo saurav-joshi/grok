@@ -35,6 +35,7 @@ public class GlobalConstantsNew {
       this.avCoverage = auxiliaryVocab + "/" + env.getProperty("infra.objectStore.auxiliaryVocab.coverage");
       this.iaaSimovStates= Arrays.asList(env.getProperty("app.iaasimov.states").split("\\s*,\\s*"));
       this.accessKey= env.getProperty("infra.objectStore.accessKey");
+
       this.secretKey= env.getProperty("infra.objectStore.secretKey");
       this.namespace= env.getProperty("infra.objectStore.namespace");
       this.region= env.getProperty("infra.objectStore.region");
