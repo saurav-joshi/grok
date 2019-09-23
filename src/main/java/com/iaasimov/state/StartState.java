@@ -70,7 +70,7 @@ public class StartState extends State {
                 conversation.getLatestQA().setCity(city);
             }
 
-            if (pattern_score._2 > 0.3){
+            if (pattern_score._2 >= 0.55){
 
 //                    return Arrays.stream(StateType.values())
 //                            .filter(x -> x.toString().equals(pattern_score._1.getLibraryName()))
@@ -92,6 +92,7 @@ public class StartState extends State {
                                 ||  x.getEntityName().contains("email") ||  x.getEntityName().contains("date")))
                         .count() > 0){
                     System.out.println("Can not classify the question, but have extracted entity ! ");
+                    System.out.println("Execute default Search query, matching pattern library:DefaultState");
                     // spin a generic Google search type of query...
                     conversation.getLatestQA().setMatchedPatternIdInLibrary(30);
                     return "DefaultState";
@@ -100,6 +101,7 @@ public class StartState extends State {
                 // spin a generic Google search type of query...
 
                 System.out.println("Can not classify the question and also no entity extracted !");
+                conversation.getLatestQA().setMatchedPatternIdInLibrary(30);
                 return "DefaultState";
                 //return "ExpectationManagementState";
             }

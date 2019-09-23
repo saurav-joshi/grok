@@ -29,6 +29,7 @@ public class ResultState extends State {
     public String process(Conversation con) {
 
         String numResults = String.valueOf(con.getLatestAnswer().getResultIaaSimov().size());
+        String message = " ";
 
         if(!con.isSimilar() && con.getLatestQA().getMatchedPattern().getQuestionType().contains("CustomerQuery.ClassMember.Count"))
         {
@@ -44,11 +45,11 @@ public class ResultState extends State {
             List<String> s = u.stream().map(x->x.getEntityValue()[0]).collect(toList());
 
 
-            String message = LibraryUtil.getRandomPatternByQuestionClass("Result.Count")
+            String messagePattern = LibraryUtil.getRandomPatternByQuestionClass("Result.Count")
                                         .getSystemMessage()
                                         .replace("%Number", numResults);
                                         //.replace("%1", s.toString());
-            con.getLatestQA().getAnswer().setMessage(message);
+            con.getLatestQA().getAnswer().setMessage(messagePattern);
             con.getLatestQA().getAnswer().setResultIaaSimov(null);
 
         }
@@ -72,15 +73,13 @@ public class ResultState extends State {
         }   else if (con.getLatestAnswer().getResultIaaSimov().size() < Constants.DEFAULT_PAGE_SIZE) {
             //String numResults = String.valueOf(conversation.getLatestAnswer().getResultRestaurants().size());
 
-            String message = LibraryUtil.getRandomPatternByQuestionClass("Result.Single").getSystemMessage().replace("%Number", numResults);
-            //if (conversation.getLatestAnswer().getResultRestaurants().size() > 1) {
-            if (con.getLatestAnswer().getResultIaaSimov().size() > 1) {
-                message = message.replace("restaurant", "restaurants");
-                message = message.replace("option", "options");
-            }
-            con.getLatestAnswer().setMessage(message);
+            String messagePattern = con.currentState().equalsIgnoreCase("DefaultState") ? message: LibraryUtil.getRandomPatternByQuestionClass("Result.Single")
+                                                                                               .getSystemMessage()
+                                                                                               .replace("%Number", numResults);
+            con.getLatestAnswer().setMessage(messagePattern);
         } else if (con.getLatestStatePaths().contains("UserRefineState")) {
-            String messagePattern = LibraryUtil.getRandomPatternByQuestionClass("Result.Refine").getSystemMessage();
+            String messagePattern = con.currentState().equalsIgnoreCase("DefaultState") ? message : LibraryUtil.getRandomPatternByQuestionClass("Result.Refine")
+                                                                                                .getSystemMessage();
             String filledMessage = createMessageForUserRefine(messagePattern, con);
             con.getLatestAnswer().setMessage(String.join(" ", filledMessage));
         } else {
@@ -88,9 +87,9 @@ public class ResultState extends State {
             String preMess = "";
             QA secondLastQA = con.getQaList().size() < 2 ? null : con.getQaList().get(con.getQaList().size() - 2);
 
-            String messagePattern = LibraryUtil.getRandomPatternByQuestionClass("Result.General")
-                                    .getSystemMessage()
-                                     .replaceAll("%Number", numResults);
+            String messagePattern = con.currentState().equalsIgnoreCase("DefaultState") ? message : LibraryUtil.getRandomPatternByQuestionClass("Result.General")
+                                                                                                .getSystemMessage()
+                                                                                                .replaceAll("%Number", numResults);
             if (con.getLocationExpand()) {
                 messagePattern = LibraryUtil.getRandomPatternByQuestionClass("Result.ShowMore.LocationBased").getSystemMessage();
                 con.setLocationExpand(false);

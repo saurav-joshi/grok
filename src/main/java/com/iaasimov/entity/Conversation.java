@@ -23,22 +23,6 @@ public class Conversation {
     int bookingRestaurantId =0;
     boolean isActivateBooking = false;
     static Map<String, List<ResultSet>> similarDomain = new HashMap<String, List<ResultSet>>();
-    static Map<String, Map<String, List<ResultSet>>> domainPerUser = new HashMap<String, Map<String, List<ResultSet>>>();
-
-    public  Map<String, Map<String, List<ResultSet>>> getDomainPerUser() {
-        return domainPerUser;
-    }
-
-    public void setDomainPerUser(Map<String, Map<String, List<ResultSet>>> similarDomainMap) {
-        Conversation.domainPerUser = similarDomainMap;
-    }
-
-    public void setDomainPerUser(String k, Map<String, List<ResultSet>> s) {
-        Conversation.domainPerUser.put(k, s);
-    }
-    public Map<String, List<ResultSet>> getDomainPerUser(String k) {
-        return Conversation.domainPerUser.get(k);
-    }
 
     public Map<String, List<ResultSet>> getSimilarQuestionsforDomain() {
         return similarDomain;
@@ -49,9 +33,15 @@ public class Conversation {
 
     }
 
-    public void resetQuestionsforDomain() {
-        this.similarDomain.clear();
+    public String getDomain() {
+        return domain;
     }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    private String domain;
 
     public boolean isSimilar() {
         return isSimilar;
@@ -240,6 +230,10 @@ public class Conversation {
 
     public QA getLatestQA() {
         return qaList.get(qaList.size() - 1);
+    }
+    public String currentState(){
+        int currStateCount = getLatestQA().getStatePaths().size() - 1 ;
+        return getLatestQA().getStatePaths().get(currStateCount);
     }
 
     public String getLastKnownCityByGeo() {

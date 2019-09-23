@@ -9,6 +9,17 @@ public class Answer {
     private String explainerMessage;
     private Suggestion suggestion;
     private String warningMessage;
+    private List<ResultSet> similarQuestions;
+
+    public List<ResultSet> getSimilarQuestions() {
+        return similarQuestions;
+    }
+
+    public void setSimilarQuestions(List<ResultSet> similarQuestions) {
+        this.similarQuestions = similarQuestions;
+    }
+
+
 
     public Answer(){
 

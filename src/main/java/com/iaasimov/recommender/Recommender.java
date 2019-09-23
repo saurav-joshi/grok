@@ -137,8 +137,7 @@ public class Recommender<T> {
             System.out.println(">>question types - looking for a class member: " + questionType);
             rq.setTarget(Constants.RecommenderTarget.CLOUD_SERVICES);
 
-            if (ucbyol)
-            {
+            if (ucbyol) {
                 java.util.List<String> ll= new ArrayList<>();
                 ll.add(qVal);
                 properties.replace("docHandle", ll);
@@ -216,6 +215,10 @@ public class Recommender<T> {
                     }
                     case "$ucq": {
                         properties.computeIfAbsent(Constants.SERVICE_GENEREAL_QUERY, v -> new ArrayList<>()).add(value);
+                        break;
+                    }
+                    case "$entities": {
+                        properties.computeIfAbsent(Constants.SERVICE_ENTITIES_QUERY, v -> new ArrayList<>()).add(value);
                         break;
                     }
                     case "$domain": {

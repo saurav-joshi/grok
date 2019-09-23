@@ -5,6 +5,7 @@ import com.iaasimov.entity.ResultSet;
 import com.iaasimov.entity.SemanticStoreQuery;
 import com.iaasimov.entityextraction.EntityExtractionUtil;
 import com.iaasimov.recommender.Recommender;
+import com.iaasimov.workflow.Parser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,25 +27,35 @@ public class DefaultState extends State {
         //dumpy entire metadata to one field and query or apply some ML techniques to query guess the most appropiate field.
         // intelligent guessing may further require extension to existing algorithms..
 
-        String entityName =con.isSimilar() ?"$domain" : "$ucq";
+        String entityName =con.isSimilar() ?"$domain" : "$entities"; ///originally "$ucq" for the timebeing testing with $entities
+
+        //Parser.getSubject(con.getLatestQueston());
+
+
+        String searchCriterion = con.isSimilar() ? con.getDomain() : con.getLatestQA().getEntityString();
         if(con.isSimilar()){
-           String q = Arrays.stream(con.getOriginalQuestion().split(" ")).skip(7).collect(Collectors.joining(" "));
-           if(con.getSimilarQuestionsforDomain().get(q) != null && con.getSimilarQuestionsforDomain().get(q).size() >1) {
-               List<ResultSet> toClient = new ArrayList<>(con.getSimilarQuestionsforDomain().get(q).subList(0,2));
-               con.getSimilarQuestionsforDomain().get(q).subList(0,2).clear();
-               List<ResultSet> r = con.getSimilarQuestionsforDomain().get(q);
+           //String q = Arrays.stream(con.getOriginalQuestion().split(" ")).skip(7).collect(Collectors.joining(" "));
+            String domainToFetch = con.getDomain();
+           //if(con.getSimilarQuestionsforDomain().get(q) != null && con.getSimilarQuestionsforDomain().get(q).size() >1) {
+            if(con.getSimilarQuestionsforDomain().get(domainToFetch) != null && con.getSimilarQuestionsforDomain().get(domainToFetch).size() >1) {
+               List<ResultSet> toClient = new ArrayList<>(con.getSimilarQuestionsforDomain().get(domainToFetch).subList(0,2));
+               con.getSimilarQuestionsforDomain().get(domainToFetch).subList(0,2).clear();
+               List<ResultSet> r = con.getSimilarQuestionsforDomain().get(domainToFetch);
                //ResultSet similarQ = r.remove(0);
-               con.setSimilarQuestionsforDomain(q, r);
+               con.setSimilarQuestionsforDomain(domainToFetch, r);
 
                //List<ResultSet> l = new ArrayList<>();
                //l.add(similarQ);
                con.getLatestQA().getAnswer().setResultIaaSimov(toClient);
                return "ResultState";
            }
-           con.getLatestQA().setOriginalQuestion(q);
+           //con.getLatestQA().setOriginalQuestion(q);
+
+            con.getLatestQA().setOriginalQuestion(domainToFetch);
+            con.getLatestQA().getEntityString();
         }
         List<EntityExtractionUtil.EntityExtractionResult> entitySet= Stream.of(new EntityExtractionUtil.EntityExtractionResult(entityName,
-                                                                     Stream.of(con.getOriginalQuestion()).toArray(String[]::new),
+                                                                     Stream.of(searchCriterion).toArray(String[]::new), // con.getOriginalQuestion()
                                                                      0))
                                                                      .collect(Collectors.toList());
         //SimilarTo functionality requires refactoring and hence not using CustomerQuery.Similarto for
@@ -70,6 +81,12 @@ public class DefaultState extends State {
 //            l.add(s);
             con.getLatestQA().getAnswer().setResultIaaSimov(toClient);
             con.setSimilarQuestionsforDomain(con.getLatestQA().getOriginalQuestion(), result);
+        }
+        else if (result!= null && result.size() >1 ) {
+           //complete the flow for suggestions..
+            con.getLatestQA().getAnswer().setResultIaaSimov(Arrays.asList(result.remove(0)));
+            con.getLatestQA().getAnswer().setSimilarQuestions(result);
+
         }
         return changeState;
     }

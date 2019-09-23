@@ -60,6 +60,13 @@ public class QA {
         return entities;
     }
 
+    public String getEntityString(){
+
+        String entityString = entities.stream().map(e ->e.getEntityName()+ "-" + String.join(" ",e.getEntityValue()) + " ")
+                .reduce("", String::concat);
+        return entityString;
+    }
+
     public void setEntities(List<EntityExtractionUtil.EntityExtractionResult> entities) {
         this.entities = entities;
     }

@@ -9,7 +9,16 @@ public class UserMessage {
     String latitude;
     String longitude;
     String eMail;
+    String domain;
     Boolean isSimilar;
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
 
     public String geteMail() {
         return eMail;

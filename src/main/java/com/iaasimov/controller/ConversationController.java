@@ -106,6 +106,7 @@ public class ConversationController extends BaseController {
         }
         con.setEMailName(um.geteMail());
         con.setSimilar(um.isSimilar());
+        con.setDomain(um.getDomain());
         boolean languageFlag = false;
         um.setOriginalQuestion(um.getQuestion());
         String question = languageFlag ? nativeLanguagueSupport(um.getQuestion()): um.getQuestion();
@@ -199,9 +200,6 @@ public class ConversationController extends BaseController {
         //LibraryUtil.Pattern disPattern = LibraryUtil.getRandomPatternByQuestionClass("Clarify.ShareLocation");
         //con.getLatestQA().getAnswer().setSuggestion(new Suggestion(disPattern.getSystemMessage(), Arrays.asList(disPattern.getPatternAtt().trim().split("\\|\\|")), "Clarify.ShareLocation"));
         con.getLatestQA().getAnswer().setMessage(greeting);
-        con.setDomainPerUser(con.getEMailName(), null);
-        con.resetQuestionsforDomain();
-
        return con.getLatestAnswer();
     }
 

@@ -24,6 +24,7 @@ public class Constants {
     public static final String SERVICE_GEO_FIELD = "service_geo";
     public static final String DATACENTER_ADDRESS_FIELD = "data_center_address";
     public static final String SERVICE_GENEREAL_QUERY = "docHandle";
+    public static final String SERVICE_ENTITIES_QUERY = "entities";
     public static final String SERVICE_SIMILAR_QUERY = "domain";
     public static final String SERVICE_GENEREAL_RESPONSE = "docBody";
 

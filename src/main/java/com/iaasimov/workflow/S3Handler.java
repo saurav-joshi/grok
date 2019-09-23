@@ -39,8 +39,11 @@ public class S3Handler implements Serializable {
 
 
 
-      String endpoint = "https://" + "apaciaas" + ".compat.objectstorage.us-ashburn-1.oraclecloud.com";
-      String region = "us-ashburn-1";
+      //String endpoint = "https://" + "apaciaas" + ".compat.objectstorage.us-ashburn-1.oraclecloud.com";
+      String namespace = GlobalConstantsNew.getInstance().namespace;
+      String endpoint = "https://" + namespace + ".compat.objectstorage.us-ashburn-1.oraclecloud.com";
+
+      String region = GlobalConstantsNew.getInstance().region;
       //String endpoint = "https://" + "s3.amazonaws.com";
       //String region = "us-east-1";
 
@@ -53,7 +56,9 @@ public class S3Handler implements Serializable {
             .withBucketName(bucketName)
             .withPrefix(folderName + "/");
 
-      ObjectListing object_listing = s3.listObjects("iaasimov-taxonomy");
+      //ObjectListing object_listing = s3.listObjects("iaasimov-taxonomy");
+      ObjectListing object_listing = s3.listObjects(GlobalConstantsNew.getInstance().taxonomyBucket);
+      //ObjectListing object_listing = s3.listObjects("iaasimov");
 
 
         List<Bucket> b = s3.listBuckets();
@@ -80,8 +85,10 @@ public class S3Handler implements Serializable {
         //AmazonS3 s3 = new AmazonS3Client(new BasicAWSCredentials(getAccessKey(), getSecretKey()));
         //S3Object s3object = s3.getObject(new GetObjectRequest(bucketName, key));
 
-      String endpoint = "https://" + "apaciaas" + ".compat.objectstorage.us-ashburn-1.oraclecloud.com";
-      String region = "us-ashburn-1";
+      //String endpoint = "https://" + "apaciaas" + ".compat.objectstorage.us-ashburn-1.oraclecloud.com";
+      String namespace = GlobalConstantsNew.getInstance().namespace;
+      String endpoint = "https://" + namespace + ".compat.objectstorage.us-ashburn-1.oraclecloud.com";
+      String region = GlobalConstantsNew.getInstance().region;
       BasicAWSCredentials credentials = new BasicAWSCredentials(GlobalConstantsNew.getInstance().accessKey, GlobalConstantsNew.getInstance().secretKey);
       AmazonS3 s3 =  AmazonS3Client.builder().standard()
         .withCredentials(new AWSStaticCredentialsProvider(credentials))
