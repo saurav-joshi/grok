@@ -17,6 +17,7 @@ public class Constants {
     public static final String SERVICE_CSM_FIELD = "csm";
     public static final String SERVICE_LAST_MODIFIED_FIELD = "last_modified";
     public static final String SERVICE_URL_FIELD = "url";
+    public static final String SERVICE_URL_LIST_FIELD = "urlList";
 
     public static final String SERVICE_GENERAL_LOCATION_FIELD = "general_location";
     public static final String SERVICE_DISCOUNT_FIELD = "service_discount";

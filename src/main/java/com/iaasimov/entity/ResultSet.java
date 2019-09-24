@@ -13,6 +13,7 @@ public class ResultSet {
     String csm;
     String customer;
     String url;
+    List<String> urlList;
     String usecase;
     String businessUsecase;
     String docHandle;
@@ -123,6 +124,14 @@ public class ResultSet {
         this.url = url;
     }
 
+    public List<String> getUrlList() {
+        return urlList;
+    }
+
+    public void setUrlList(List<String> url) {
+        this.urlList = url;
+    }
+
     public String getUsecase() {
         return usecase;
     }
@@ -138,7 +147,7 @@ public class ResultSet {
     public ResultSet(String id, String product, String country,
                      String region, String industry, String ec,
                      String csm,String customer,
-                     String url, String usecase, String businessUsecase,
+                     String url, List<String> urlList,String usecase, String businessUsecase,
                      String docHandle, String similarResult,String docBody) {
         this.id = id;
         this.product = product;
@@ -149,6 +158,7 @@ public class ResultSet {
         this.csm = csm;
         this.customer = customer;
         this.url =url;
+        this.urlList =urlList;
         this.usecase = usecase;
         this.businessUsecase =businessUsecase;
         this.docHandle= docHandle;
@@ -168,6 +178,7 @@ public class ResultSet {
         System.out.println("-CSM: " + csm);
         System.out.println("-Customer: " + customer);
         System.out.println("-URL: " + url);
+        System.out.println("-URList: " + urlList);
         System.out.println("-UseCase: " + usecase);
         System.out.println("-UseCase: " + businessUsecase);
         System.out.println("-docHandle: " + docHandle);

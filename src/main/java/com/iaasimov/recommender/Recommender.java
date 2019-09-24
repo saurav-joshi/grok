@@ -61,6 +61,7 @@ public class Recommender<T> {
         attribute2SolrField.put("$csm", Constants.SERVICE_CSM_FIELD);
         attribute2SolrField.put("$lastModified", Constants.SERVICE_LAST_MODIFIED_FIELD);
         attribute2SolrField.put("$url", Constants.SERVICE_URL_FIELD);
+        attribute2SolrField.put("$urlList", Constants.SERVICE_URL_LIST_FIELD);
         attribute2SolrField.put("$customer", Constants.SERVICE_CUSTOMER_FIELD);
         attribute2SolrField.put("$docHandle", Constants.SERVICE_GENEREAL_QUERY);
         attribute2SolrField.put("docBody", Constants.SERVICE_GENEREAL_RESPONSE);
