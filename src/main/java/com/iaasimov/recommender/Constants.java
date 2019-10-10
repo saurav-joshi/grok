@@ -18,6 +18,12 @@ public class Constants {
     public static final String SERVICE_LAST_MODIFIED_FIELD = "last_modified";
     public static final String SERVICE_URL_FIELD = "url";
     public static final String SERVICE_URL_LIST_FIELD = "urlList";
+    public static final String SERVICE_DEAL_SIZE_FIELD = "deal_size";
+    public static final String SERVICE_ADVANTAGE_FIELD = "oracle_advantages";
+    public static final String SERVICE_KEY_OBJECTIONS_FIELD = "key_objections";
+    public static final String SERVICE_CUSTOMER_BACKGROUND_FIELD = "customer_background";
+    public static final String SERVICE_BUSINESS_PAIN_POINTS_FIELD = "business_pain_points";
+    public static final String SERVICE_USECASE_TYPE_FIELD = "use_case_type";
 
     public static final String SERVICE_GENERAL_LOCATION_FIELD = "general_location";
     public static final String SERVICE_DISCOUNT_FIELD = "service_discount";

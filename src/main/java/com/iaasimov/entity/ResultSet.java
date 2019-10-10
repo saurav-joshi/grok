@@ -19,6 +19,61 @@ public class ResultSet {
     String docHandle;
     String similarDocs;
     String docBody;
+    String dealSize;
+    String advantages;
+    String keyObjections;
+    String customerBackground;
+    String businessPainPoints;
+    String useCaseType;
+
+    public String getDealSize() {
+        return dealSize;
+    }
+
+    public void setDealSize(String dealSize) {
+        this.dealSize = dealSize;
+    }
+
+    public String getAdvantages() {
+        return advantages;
+    }
+
+    public void setAdvantages(String advantages) {
+        this.advantages = advantages;
+    }
+
+    public String getKeyObjections() {
+        return keyObjections;
+    }
+
+    public void setKeyObjections(String keyObjections) {
+        this.keyObjections = keyObjections;
+    }
+
+    public String getCustomerBackground() {
+        return customerBackground;
+    }
+
+    public void setCustomerBackground(String customerBackground) {
+        this.customerBackground = customerBackground;
+    }
+
+    public String getBusinessPainPoints() {
+        return businessPainPoints;
+    }
+
+    public void setBusinessPainPoints(String businessPainPoints) {
+        this.businessPainPoints = businessPainPoints;
+    }
+
+    public String getUseCaseType() {
+        return useCaseType;
+    }
+
+    public void setUseCaseType(String useCaseType) {
+        this.useCaseType = useCaseType;
+    }
+
 
     public String getSimilarDocs() {
         return similarDocs;
@@ -148,7 +203,9 @@ public class ResultSet {
                      String region, String industry, String ec,
                      String csm,String customer,
                      String url, List<String> urlList,String usecase, String businessUsecase,
-                     String docHandle, String similarResult,String docBody) {
+                     String docHandle, String similarResult,String docBody,
+                     String dealSize, String advantages, String keyObjections,
+                     String customerBackground, String businessPainPoints, String useCaseType) {
         this.id = id;
         this.product = product;
         this.country = country;
@@ -164,6 +221,12 @@ public class ResultSet {
         this.docHandle= docHandle;
         this.similarDocs = similarResult;
         this.docBody =docBody;
+        this.dealSize = dealSize;
+        this.advantages = advantages;
+        this.keyObjections = keyObjections;
+        this.customerBackground = customerBackground;
+        this.businessPainPoints = businessPainPoints;
+        this.useCaseType = useCaseType;
 
     }
 
@@ -184,6 +247,13 @@ public class ResultSet {
         System.out.println("-docHandle: " + docHandle);
         System.out.println("-similarDocs: " + similarDocs);
         System.out.println("-docBody: " + docBody);
+
+        System.out.println("-dealSize: " + dealSize);
+        System.out.println("-Advantages: " + advantages);
+        System.out.println("-keyObjections: " + keyObjections);
+        System.out.println("-customerBackground: " + customerBackground);
+        System.out.println("-businessPainPoints: " + businessPainPoints);
+        System.out.println("-useCaseType: " + useCaseType);
 
     }
 }

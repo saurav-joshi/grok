@@ -46,7 +46,13 @@ public class ResultWrapper <T> {
                         (String)aResult.getFieldValue(Constants.SERVICE_USECASE_DETAILS_FIELD),
                         (String)aResult.getFieldValue(Constants.SERVICE_GENEREAL_QUERY),
                         (String)aResult.getFieldValue(Constants.SERVICE_SIMILAR_QUERY),
-                        (String)aResult.getFieldValue(Constants.SERVICE_GENEREAL_RESPONSE)
+                        (String)aResult.getFieldValue(Constants.SERVICE_GENEREAL_RESPONSE),
+                        (String)aResult.getFieldValue(Constants.SERVICE_DEAL_SIZE_FIELD),
+                        (String)aResult.getFieldValue(Constants.SERVICE_ADVANTAGE_FIELD),
+                        (String)aResult.getFieldValue(Constants.SERVICE_KEY_OBJECTIONS_FIELD),
+                        (String)aResult.getFieldValue(Constants.SERVICE_CUSTOMER_BACKGROUND_FIELD),
+                        (String)aResult.getFieldValue(Constants.SERVICE_BUSINESS_PAIN_POINTS_FIELD),
+                        (String)aResult.getFieldValue(Constants.SERVICE_USECASE_TYPE_FIELD)
 
 
                 );
@@ -76,8 +82,13 @@ public class ResultWrapper <T> {
                 (String)aResult.getFieldValue(Constants.SERVICE_USECASE_DETAILS_FIELD),
                 (String)aResult.getFieldValue(Constants.SERVICE_GENEREAL_QUERY),
                 (String)aResult.getFieldValue(Constants.SERVICE_SIMILAR_QUERY),
-                (String)aResult.getFieldValue(Constants.SERVICE_GENEREAL_RESPONSE)
-
+                (String)aResult.getFieldValue(Constants.SERVICE_GENEREAL_RESPONSE),
+                (String)aResult.getFieldValue(Constants.SERVICE_DEAL_SIZE_FIELD),
+                (String)aResult.getFieldValue(Constants.SERVICE_ADVANTAGE_FIELD),
+                (String)aResult.getFieldValue(Constants.SERVICE_KEY_OBJECTIONS_FIELD),
+                (String)aResult.getFieldValue(Constants.SERVICE_CUSTOMER_BACKGROUND_FIELD),
+                (String)aResult.getFieldValue(Constants.SERVICE_BUSINESS_PAIN_POINTS_FIELD),
+                (String)aResult.getFieldValue(Constants.SERVICE_USECASE_TYPE_FIELD)
 
         );
         return rrest;

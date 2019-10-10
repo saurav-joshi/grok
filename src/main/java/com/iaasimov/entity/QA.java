@@ -36,6 +36,21 @@ public class QA {
     String geo;
     String city;
 
+    public String highlightTerms(){
+        String highlightTerms;
+        List<String>append = new ArrayList<>();
+        for (EntityExtractionUtil.EntityExtractionResult e : getEntities()){
+
+            if(e.getEntityName() .equalsIgnoreCase("$targetfields") ||
+                    e.getEntityName() .equalsIgnoreCase("$actionword"))
+                append.add(String.join(" ", e.getEntityValue()));
+            else
+                append.add(e.getEntityName().replace("$",""));
+        }
+        highlightTerms = String.join(" ", append);
+        return highlightTerms;
+    }
+
     public LibraryUtil.Pattern getMatchedPattern(){
         return LibraryUtil.allPatternsMap.get(this.getMatchedPatternIdInLibrary());
     }
@@ -59,6 +74,13 @@ public class QA {
     public List<EntityExtractionUtil.EntityExtractionResult> getEntities() {
         return entities;
     }
+
+    public List<String> getEntityKeyList() {
+
+        return entities.stream().filter(x->!x.getEntityName().equalsIgnoreCase("$targetfields"))
+                                .map(x->x.getEntityName()).collect(Collectors.toList());
+    }
+
 
     public String getEntityString(){
 

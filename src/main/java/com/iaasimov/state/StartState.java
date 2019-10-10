@@ -25,6 +25,7 @@ public class StartState extends State {
 
     public String process(Conversation conversation) {
         try{
+
             String question = String.join(" ", conversation.getLatestQA().getCleanedQuestionPatternWords());
 
             // check whether it is a clarification
@@ -161,7 +162,17 @@ public class StartState extends State {
         // Case 3: match each sentence one by one, and find the optimal matched one.
         Tuple2<LibraryUtil.Pattern, Double> matchOptimal = matchSentencesWithPattern(sentences, conversation);
         System.out.println("Case 3: try with question pattern (optimal sentence):" + question + " --matching score:" + matchOptimal._2);
-        return matchOptimal;
+        if(matchOptimal._2 >= 0.7) {
+            return matchOptimal;
+        }
+
+        String  entityNames = String.join(" ", conversation.getLatestQA().getEntityKeyList());
+        List<String> entityList = Parser.getSentencesfromText(entityNames);
+
+        Tuple2<LibraryUtil.Pattern, Double> matchEntityScore = matchSentencesWithPattern(entityList, conversation);
+        System.out.println("Case 4: try with Entity Set:" + question + " --matching score:" + matchEntityScore._2);
+        return matchEntityScore;
+
     }
 
     // given the current conversation and the sentences in the query, find the correct pattern

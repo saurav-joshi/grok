@@ -255,7 +255,24 @@ public class LibraryUtil {
             else j++;
         }
 //        System.out.println(result.size());
-        return (double)result.size()/ (double)Math.max(message.size(),questionPattern.size());
+        double score = result.size()/ (double)Math.max(message.size(),questionPattern.size());
+        Set<String> common = new HashSet<>(message);
+        common.retainAll(questionPattern);
+        double score_set = common.size()/(double)Math.max(message.size(),questionPattern.size());
+
+        List<String> intersect = questionPattern.stream()
+                .filter(message::contains)
+                .collect(Collectors.toList());
+        double score_filter = intersect.size()/(double)Math.max(message.size(),questionPattern.size());
+
+        System.out.println("LEGACY score " + score);
+        System.out.println("Score using SET" + score_set);
+        System.out.println("Score using FILTER" + score_filter);
+        System.out.println("Result Entities: " + result);
+        System.out.println("User Message: " + message);
+        System.out.println("Question Pattern: " + questionPattern);
+
+        return score_filter;
     }
 
     public static List<Tuple2<Pattern,Double>> patternClassificationMultiple(List<String> words , Map<String,Set<String>> flatContextsMap){

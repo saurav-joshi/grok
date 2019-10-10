@@ -25,6 +25,8 @@ public class CustomerQueryState extends State {
         List<ResultSet> result = Recommender.getInstance().getRecommendationResults(query, null);
         con.getLatestQA().getAnswer().setResultIaaSimov(result);
 
+        con.getLatestQA().getAnswer().setHighlightTerms(con.getLatestQA().highlightTerms());
+
         return "ResultState";
     }
 

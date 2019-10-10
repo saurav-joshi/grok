@@ -10,6 +10,17 @@ public class Answer {
     private Suggestion suggestion;
     private String warningMessage;
     private List<ResultSet> similarQuestions;
+    private String highlightTerms;
+
+    public String getHighlightTerms() {
+        return highlightTerms;
+    }
+
+    public void setHighlightTerms(String highlightEntities) {
+        this.highlightTerms = highlightEntities;
+    }
+
+
 
     public List<ResultSet> getSimilarQuestions() {
         return similarQuestions;

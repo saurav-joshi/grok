@@ -30,11 +30,11 @@ Id	LibraryName	UserInputPattern	SystemMessage	PatternAtt	Type	Owner
 6547	SystemGreetingState		Hey #UserName, Welcome back 	Returned users. 1st interaction of the day	SystemGreeting.General	System
 6848	SystemRequestLocation		First, tell me where you are so that I can give you relevent suggestions!		SystemRequestLocation	System
 6669	UCBYOLState	What are $action-words-uc-byol $uc-byol	The available purchase models are: 1. Pay-As-You-Go (PAYG): Billed in arrears based on consumption 2. Monthly Flex: Billed in advance. 12-month minimum. Use monthly or lose.		UCBYOL.UCBYOL	User
-6670	CustomerQueryState	$actionwords $region	Check these.		CustomerQuery.ClassMember	User
-6671	CustomerQueryState	$actionwords $country	Check these.		CustomerQuery.ClassMember	User
-6672	CustomerQueryState	$actionwords $industry	Check these.		CustomerQuery.ClassMember	User
-6673	CustomerQueryState	$actionwords $usecase	Check these.		CustomerQuery.ClassMember	User
-6674	CustomerQueryState	$actionwords $product	Check these.		CustomerQuery.ClassMember	User
+6670	CustomerQueryState	$actionword $region	Check these.		CustomerQuery.ClassMember	User
+6671	CustomerQueryState	$actionword $country	Check these.		CustomerQuery.ClassMember	User
+6672	CustomerQueryState	$actionword $industry	Check these.		CustomerQuery.ClassMember	User
+6673	CustomerQueryState	$actionword $usecase	Check these.		CustomerQuery.ClassMember	User
+6674	CustomerQueryState	$actionword $product	Check these.		CustomerQuery.ClassMember	User
 6675	ResultState		%Number Customers and counting.		Result.Single	System
 6576	ResultState		Found %Number customers for you!		Result.Single	System
 6577	ResultState		%Number Customers and counting.		Result.Single	System
@@ -43,33 +43,33 @@ Id	LibraryName	UserInputPattern	SystemMessage	PatternAtt	Type	Owner
 6580	ResultState		Got %Number results! Hit like if these work. ;)		Result.General	System
 6581	ResultState		Gotcha! There are %Number Customers and counting. Click the like button if i've nailed it.		Result.General	System
 6582	ResultState		%Number total results. Click "Like" if these work. ^_^		Result.General	System
-6683	CustomerQueryState	$actionwords $usecase $country	Check these.		CustomerQuery.ClassMember	User
+6683	CustomerQueryState	$actionword $usecase $country	Check these.		CustomerQuery.ClassMember	User
 6684	UCBYOLState	$ucq	Check these.		CustomerQuery.ClassMember	User
-6685	CustomerQueryState	$actionwords $usecase $region	Check these.		CustomerQuery.ClassMember	User
+6685	CustomerQueryState	$actionword $usecase $region	Check these.		CustomerQuery.ClassMember	User
 6686	CustomerQueryState	$qualifiers $usecase $region	Check these.		CustomerQuery.ClassMember	User
-6687	CustomerQueryState	$qualifiers $actionwords $usecase $region	Check these.		CustomerQuery.ClassMember	User
+6687	CustomerQueryState	$qualifiers $actionword $usecase $region	Check these.		CustomerQuery.ClassMember	User
 6688	CustomerQueryState	$qualifiers $usecase $country	Check these.		CustomerQuery.ClassMember	User
-6689	CustomerQueryState	$qualifiers $actionwords $usecase $country	Check these.		CustomerQuery.ClassMember	User
-6690	CustomerQueryState	$qualifiers $actionwords $product $country	Check these.		CustomerQuery.ClassMember	User
-6691	CustomerQueryState	$qualifiers $actionwords $product $region	Check these.		CustomerQuery.ClassMember	User
-6722	CustomerQueryState	$actionwords $usecase $industry	Check these.		CustomerQuery.ClassMember	User
+6689	CustomerQueryState	$qualifiers $actionword $usecase $country	Check these.		CustomerQuery.ClassMember	User
+6690	CustomerQueryState	$qualifiers $actionword $product $country	Check these.		CustomerQuery.ClassMember	User
+6691	CustomerQueryState	$qualifiers $actionword $product $region	Check these.		CustomerQuery.ClassMember	User
+6722	CustomerQueryState	$actionword $usecase $industry	Check these.		CustomerQuery.ClassMember	User
 6723	CustomerQueryState	$qualifier $usecase $industry	Check these.		CustomerQuery.ClassMember	User
-6724	CustomerQueryState	$qualifier $actionwords $usecase $industry	Check these.		CustomerQuery.ClassMember	User
+6724	CustomerQueryState	$qualifier $actionword $usecase $industry	Check these.		CustomerQuery.ClassMember	User
 6725	CustomerQueryState	$qualifier $usecase $industry	Check these.		CustomerQuery.ClassMember	User
-6726	CustomerQueryState	$qualifier $actionwords $usecase $industry	Check these.		CustomerQuery.ClassMember	User
-6727	CustomerQueryState	$qualifier $actionwords $product $industry	Check these.		CustomerQuery.ClassMember	User
-6733	CustomerQueryState	$actionwords $businessUsecase $industry	Check these.		CustomerQuery.ClassMember	User
+6726	CustomerQueryState	$qualifier $actionword $usecase $industry	Check these.		CustomerQuery.ClassMember	User
+6727	CustomerQueryState	$qualifier $actionword $product $industry	Check these.		CustomerQuery.ClassMember	User
+6733	CustomerQueryState	$actionword $businessUsecase $industry	Check these.		CustomerQuery.ClassMember	User
 6734	CustomerQueryState	$qualifier $businessUsecase $industry	Check these.		CustomerQuery.ClassMember	User
-6735	CustomerQueryState	$qualifier $actionwords $businessUsecase $industry	Check these.		CustomerQuery.ClassMember	User
+6735	CustomerQueryState	$qualifier $actionword $businessUsecase $industry	Check these.		CustomerQuery.ClassMember	User
 6736	CustomerQueryState	$qualifier $businessUsecase $industry	Check these.		CustomerQuery.ClassMember	User
-6737	CustomerQueryState	$qualifier $actionwords $businessUsecase $industry	Check these.		CustomerQuery.ClassMember	User
-6738	CustomerQueryState	$qualifier $actionwords $businessUsecase	Check these.		CustomerQuery.ClassMember	User
-6739	CustomerQueryState	$actionwords $businessUsecase	Check these.		CustomerQuery.ClassMember	User
+6737	CustomerQueryState	$qualifier $actionword $businessUsecase $industry	Check these.		CustomerQuery.ClassMember	User
+6738	CustomerQueryState	$qualifier $actionword $businessUsecase	Check these.		CustomerQuery.ClassMember	User
+6739	CustomerQueryState	$actionword $businessUsecase	Check these.		CustomerQuery.ClassMember	User
 6740	CustomerQueryState	$qualifiers $businessUsecase	Check these.		CustomerQuery.ClassMember	User
-6741	CustomerQueryState	$actionwords $businessUsecase $actionwords $product	Check these.		CustomerQuery.ClassMember	User
-6742	CustomerQueryState	$actionwords $product $actionwords $businessUsecase	Check these.		CustomerQuery.ClassMember	User
-6743	CustomerQueryState	$qualifier $businessUsecase $actionwords $product	Check these.		CustomerQuery.ClassMember	User
-6744	CustomerQueryState	$actionwords $region $qualifier $product	Check these.		CustomerQuery.ClassMember	User
+6741	CustomerQueryState	$actionword $businessUsecase $actionword $product	Check these.		CustomerQuery.ClassMember	User
+6742	CustomerQueryState	$actionword $product $actionword $businessUsecase	Check these.		CustomerQuery.ClassMember	User
+6743	CustomerQueryState	$qualifier $businessUsecase $actionword $product	Check these.		CustomerQuery.ClassMember	User
+6744	CustomerQueryState	$actionword $region $qualifier $product	Check these.		CustomerQuery.ClassMember	User
 6745	CustomerQueryState	$count $product $countactions $product	Check these.		CustomerQuery.ClassMember.Count	User
 6746	CustomerQueryState	$count $product $countactions $region	Check these.		CustomerQuery.ClassMember.Count	User
 6747	CustomerQueryState	$count $product $countactions $industry	Check these.		CustomerQuery.ClassMember.Count	User
@@ -77,6 +77,8 @@ Id	LibraryName	UserInputPattern	SystemMessage	PatternAtt	Type	Owner
 6749	CustomerQueryState	$count $product	Check these.		CustomerQuery.ClassMember.Count	User
 6750	CustomerQueryState	$count $product $countactions $country	Check these.		CustomerQuery.ClassMember.Count	User
 6751	ResultState		%Number Customers and counting. BTW I can also tell you who they are. Ask me following-- Show me all ADW customers :) 		Result.Count	System
-6752	CustomerQueryState	$actionwords $product customer $verb $country	Check these.		CustomerQuery.ClassMember	User
-6753	CustomerQueryState	$actionwords $product $actionwords $country	Check these.		CustomerQuery.ClassMember	User
-6754	CustomerQueryState	$product $actionwords $country	Check these.		CustomerQuery.ClassMember	User
+6752	CustomerQueryState	$actionword $product customer $verb $country	Check these.		CustomerQuery.ClassMember	User
+6753	CustomerQueryState	$actionword $product $actionword $country	Check these.		CustomerQuery.ClassMember	User
+6754	CustomerQueryState	$product $actionword $country	Check these.		CustomerQuery.ClassMember	User
+6755	CustomerQueryState	$product $actionword	Check these.		CustomerQuery.ClassMember	User
+6756	CustomerQueryState	$product $country	Check these.		CustomerQuery.ClassMember	User

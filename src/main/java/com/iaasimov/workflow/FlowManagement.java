@@ -208,13 +208,10 @@ public class FlowManagement {
         List<String> patternWords = Lists.newLinkedList(Arrays.asList(con.getLatestQA().getQuestion().split("\\s+")));
         con.getLatestEntities().stream().sorted((a, b) -> b.getStartIndex() - a.getStartIndex()).forEach(r -> {
 
-            if(! (r.getEntityName().contains("regular")
-                    || r.getEntityName().contains("accompany")
-                    || r.getEntityName().contains("occasion")) && r.getEndIndex()< patternWords.size()) {
                 List<String> matchedPattern = patternWords.subList(r.getStartIndex(), r.getEndIndex()+ 1);
                 matchedPattern.clear();
                 matchedPattern.add(r.getEntityName());
-            }
+
         });
         con.getLatestQA().setCleanedQuestionPatternWords(patternWords);
         System.out.println("Question with Pattern Replacement: "+ patternWords);
