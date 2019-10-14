@@ -231,6 +231,9 @@ public class Conversation {
     public QA getLatestQA() {
         return qaList.get(qaList.size() - 1);
     }
+    public QA getLastQA() {
+        return qaList.get(qaList.size() - 2);
+    }
     public String currentState(){
         int currStateCount = getLatestQA().getStatePaths().size() - 1 ;
         return getLatestQA().getStatePaths().get(currStateCount);

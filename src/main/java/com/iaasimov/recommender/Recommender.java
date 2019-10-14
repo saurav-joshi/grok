@@ -59,10 +59,11 @@ public class Recommender<T> {
         attribute2SolrField.put("$use_case_details", Constants.SERVICE_USECASE_FIELD);
         attribute2SolrField.put("$customerOutcome", Constants.SERVICE_CUSTOMER_OUTCOMR_FIELD);
         attribute2SolrField.put("$csm", Constants.SERVICE_CSM_FIELD);
+        attribute2SolrField.put("$customername", Constants.SERVICE_CUSTOMER_FIELD);
         attribute2SolrField.put("$lastModified", Constants.SERVICE_LAST_MODIFIED_FIELD);
         attribute2SolrField.put("$url", Constants.SERVICE_URL_FIELD);
         attribute2SolrField.put("$urlList", Constants.SERVICE_URL_LIST_FIELD);
-        attribute2SolrField.put("$customer", Constants.SERVICE_CUSTOMER_FIELD);
+        //attribute2SolrField.put("$customer", Constants.SERVICE_CUSTOMER_FIELD);
         attribute2SolrField.put("$docHandle", Constants.SERVICE_GENEREAL_QUERY);
         attribute2SolrField.put("docBody", Constants.SERVICE_GENEREAL_RESPONSE);
         attribute2SolrField.put("$domain", Constants.SERVICE_SIMILAR_QUERY);
@@ -202,13 +203,12 @@ public class Recommender<T> {
 
                     case "$businessusecase": {
                         properties.computeIfAbsent(Constants.SERVICE_USECASE_DETAILS_FIELD, v -> new ArrayList<>()).add(value);
-
                         break;
                     }
-                    case "$customer": {
-                            properties.computeIfAbsent(Constants.SERVICE_CUSTOMER_FIELD, v -> new ArrayList<>()).add("0.5");
-                        break;
-                    }
+//                    case "$customer": {
+//                            properties.computeIfAbsent(Constants.SERVICE_CUSTOMER_FIELD, v -> new ArrayList<>()).add("0.5");
+//                        break;
+//                    }
 
                     case "$csm": {
                         properties.computeIfAbsent(Constants.SERVICE_CSM_FIELD, v -> new ArrayList<>()).add(value);
@@ -224,6 +224,10 @@ public class Recommender<T> {
                     }
                     case "$domain": {
                         properties.computeIfAbsent(Constants.SERVICE_SIMILAR_QUERY, v -> new ArrayList<>()).add(value);
+                        break;
+                    }
+                    case "$customername": {
+                        properties.computeIfAbsent(Constants.SERVICE_CUSTOMER_FIELD, v -> new ArrayList<>()).add(value);
                         break;
                     }
 

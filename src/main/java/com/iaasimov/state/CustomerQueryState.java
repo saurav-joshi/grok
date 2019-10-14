@@ -14,7 +14,7 @@ public class CustomerQueryState extends State {
     public void setStateType() {this.stateType = "CustomerQueryState"; }
 
     public void allowedInputStateTypes() {
-        allowedInputStateTypes.add("SrartState");
+        allowedInputStateTypes.add("StartState");
     }
 
     public String process(Conversation con) {
