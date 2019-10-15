@@ -25,6 +25,15 @@ public class ResultSet {
     String customerBackground;
     String businessPainPoints;
     String useCaseType;
+    String displayCustomerName;
+
+    public String getDisplayCustomerName() {
+        return displayCustomerName;
+    }
+
+    public void setDisplayCustomerName(String detailedCustomerName) {
+        this.displayCustomerName = detailedCustomerName;
+    }
 
     public String getDealSize() {
         return dealSize;
@@ -201,7 +210,7 @@ public class ResultSet {
 
     public ResultSet(String id, String product, String country,
                      String region, String industry, String ec,
-                     String csm,String customer,
+                     String csm,String customer,String detailedCustomerName,
                      String url, List<String> urlList,String usecase, String businessUsecase,
                      String docHandle, String similarResult,String docBody,
                      String dealSize, String advantages, String keyObjections,
@@ -214,6 +223,7 @@ public class ResultSet {
         this.emotionalConnect = ec;
         this.csm = csm;
         this.customer = customer;
+        this.displayCustomerName = detailedCustomerName;
         this.url =url;
         this.urlList =urlList;
         this.usecase = usecase;
@@ -240,6 +250,7 @@ public class ResultSet {
         System.out.println("-Emotional Connect: " + emotionalConnect);
         System.out.println("-CSM: " + csm);
         System.out.println("-Customer: " + customer);
+        System.out.println("-Customer: " + displayCustomerName);
         System.out.println("-URL: " + url);
         System.out.println("-URList: " + urlList);
         System.out.println("-UseCase: " + usecase);
