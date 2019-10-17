@@ -46,7 +46,9 @@ public class ContextualQueryState extends State {
             return "ExpectationManagementState";
         }
 
-        //Perform a partial match when customer names are too big
+        // To Do :: This may be done while assigning states Perform a partial match when customer names are too big
+
+        //Check for targetFields before merging Entity...
         String targetFields = con.getLatestQA().highlightTerms();
 
         merrgeEntities(con);

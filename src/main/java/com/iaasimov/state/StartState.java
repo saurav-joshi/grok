@@ -141,13 +141,14 @@ public class StartState extends State {
         }
 
         // Case 1: use the original question to match the patterns, to handle some fixed answer problems
-        if(conversation.getLatestQA().getOriginalQuestion() != null && conversation.getLatestQA().getOriginalQuestion().trim().length() != 0){
-            Tuple2<LibraryUtil.Pattern, Double> matchOriginal = matchSentencesWithPattern(Arrays.asList(String.join(" ", Parser.lemmatizeAndLowercaseText(conversation.getLatestQA().getOriginalQuestion()))), conversation);
-            System.out.println("Case 1: try with original question:" + conversation.getLatestQA().getOriginalQuestion() + " --matching score:" + matchOriginal._2);
-            if(matchOriginal._2 > 0.8){
-                return matchOriginal;
-            }
-        }
+        //Commenting out for faster execution.. .
+//        if(conversation.getLatestQA().getOriginalQuestion() != null && conversation.getLatestQA().getOriginalQuestion().trim().length() != 0){
+//            Tuple2<LibraryUtil.Pattern, Double> matchOriginal = matchSentencesWithPattern(Arrays.asList(String.join(" ", Parser.lemmatizeAndLowercaseText(conversation.getLatestQA().getOriginalQuestion()))), conversation);
+//            System.out.println("Case 1: try with original question:" + conversation.getLatestQA().getOriginalQuestion() + " --matching score:" + matchOriginal._2);
+//            if(matchOriginal._2 > 0.8){
+//                return matchOriginal;
+//            }
+//        }
 
         // Case 2: In case of multiple sentences in the question, match as one sentences, to handle the long patterns (e.g, multiple sentence as well)
         List<String> sentences = Parser.getSentencesfromText(question);
