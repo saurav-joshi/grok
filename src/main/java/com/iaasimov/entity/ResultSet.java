@@ -20,7 +20,7 @@ public class ResultSet {
     String similarDocs;
     String docBody;
     String dealSize;
-    String advantages;
+    String advantage;
     String keyObjections;
     String customerBackground;
     String businessPainPoints;
@@ -44,11 +44,11 @@ public class ResultSet {
     }
 
     public String getAdvantages() {
-        return advantages;
+        return advantage;
     }
 
     public void setAdvantages(String advantages) {
-        this.advantages = advantages;
+        this.advantage = advantages;
     }
 
     public String getKeyObjections() {
@@ -232,7 +232,7 @@ public class ResultSet {
         this.similarDocs = similarResult;
         this.docBody =docBody;
         this.dealSize = dealSize;
-        this.advantages = advantages;
+        this.advantage = advantages;
         this.keyObjections = keyObjections;
         this.customerBackground = customerBackground;
         this.businessPainPoints = businessPainPoints;
@@ -260,7 +260,7 @@ public class ResultSet {
         System.out.println("-docBody: " + docBody);
 
         System.out.println("-dealSize: " + dealSize);
-        System.out.println("-Advantages: " + advantages);
+        System.out.println("-Advantages: " + advantage);
         System.out.println("-keyObjections: " + keyObjections);
         System.out.println("-customerBackground: " + customerBackground);
         System.out.println("-businessPainPoints: " + businessPainPoints);
