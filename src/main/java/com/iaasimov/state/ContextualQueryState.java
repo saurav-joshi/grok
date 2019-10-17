@@ -57,8 +57,10 @@ public class ContextualQueryState extends State {
         List<ResultSet> result = Recommender.getInstance().getRecommendationResults(query, null);
         con.getLatestQA().getAnswer().setResultIaaSimov(result);
 
-        String highlightTerms = targetFields !=null ? targetFields:"customerBackground";
-        con.getLatestQA().getAnswer().setHighlightTerms(targetFields);
+        //if target fields only contains customerName then replace it with customer background else truncate customer name from the highlight term
+
+        String highlightTerms = targetFields.equalsIgnoreCase("customername") ? "customerBackground" : targetFields.replace("customername", " ");
+        con.getLatestQA().getAnswer().setHighlightTerms(highlightTerms);
 
         return "ResultState";
     }
