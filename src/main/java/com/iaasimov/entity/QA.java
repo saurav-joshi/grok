@@ -36,14 +36,27 @@ public class QA {
     String geo;
     String city;
 
+    static Map<String, String> userKeytoSchemaValue = new HashMap<>();
+
+    public static void populateKeytoSchemaMapping(){
+        userKeytoSchemaValue.put("deal size", "dealSize");
+        userKeytoSchemaValue.put("pain point", "businessPainPoints");
+        userKeytoSchemaValue.put("benefit", "advantages");
+
+    }
+
     public String highlightTerms(){
         String highlightTerms;
         List<String>append = new ArrayList<>();
         for (EntityExtractionUtil.EntityExtractionResult e : getEntities()){
 
             if(e.getEntityName() .equalsIgnoreCase("$targetfields") ||
-                    e.getEntityName() .equalsIgnoreCase("$actionword"))
-                append.add(String.join(" ", e.getEntityValue()));
+                    e.getEntityName() .equalsIgnoreCase("$actionword")) {
+
+                String tempVal = String.join(" ", e.getEntityValue());
+                String val = userKeytoSchemaValue.containsKey(tempVal) ? userKeytoSchemaValue.get(tempVal) : tempVal;
+                append.add(val);
+            }
             else
                 append.add(e.getEntityName().replace("$",""));
         }

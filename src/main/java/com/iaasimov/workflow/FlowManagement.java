@@ -1,9 +1,6 @@
 package com.iaasimov.workflow;
 
-import com.iaasimov.entity.Answer;
-import com.iaasimov.entity.Clarification;
-import com.iaasimov.entity.Conversation;
-import com.iaasimov.entity.Suggestion;
+import com.iaasimov.entity.*;
 import com.iaasimov.entityextraction.EntityExtractionUtil;
 import com.iaasimov.spelling.SpellingCorrection;
 import com.iaasimov.state.State;
@@ -39,6 +36,7 @@ public class FlowManagement {
             //flowManagement.addContextToEntityExtraction();
             createStates();
             sc = new SpellingCorrection();
+            QA.populateKeytoSchemaMapping();
             System.out.println(" The Service Is Ready Now ....");
             return flowManagement;
         } else return flowManagement;
