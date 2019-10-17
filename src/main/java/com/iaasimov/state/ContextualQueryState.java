@@ -41,11 +41,13 @@ public class ContextualQueryState extends State {
         Set<String>questionType =  con.getLatestQA().getMatchedPattern().getQuestionType();
 
         QA lastQ = con.getLastQA();
-        if (lastQ == null || lastQ.getStatePaths() == null){
+        //if (lastQ.getMatchedPattern() == null || lastQ.getMatchedPattern().getLibraryName() != "CustomerQueryState"){
+        if (lastQ.getMatchedPattern() == null || lastQ.getMatchedPattern().getLibraryName() != "CustomerQueryState"){
             return "ExpectationManagementState";
         }
 
         //Perform a partial match when customer names are too big
+        String targetFields = con.getLatestQA().highlightTerms();
 
         merrgeEntities(con);
 
@@ -53,7 +55,8 @@ public class ContextualQueryState extends State {
         List<ResultSet> result = Recommender.getInstance().getRecommendationResults(query, null);
         con.getLatestQA().getAnswer().setResultIaaSimov(result);
 
-        con.getLatestQA().getAnswer().setHighlightTerms("customerBackground");
+        String highlightTerms = targetFields !=null ? targetFields:"customerBackground";
+        con.getLatestQA().getAnswer().setHighlightTerms(targetFields);
 
         return "ResultState";
     }
