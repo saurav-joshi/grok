@@ -42,7 +42,7 @@ public class ContextualQueryState extends State {
 
         QA lastQ = con.getLastQA();
         //if (lastQ.getMatchedPattern() == null || lastQ.getMatchedPattern().getLibraryName() != "CustomerQueryState"){
-        if (lastQ.getMatchedPattern() == null || lastQ.getMatchedPattern().getLibraryName() != "CustomerQueryState"){
+        if (lastQ.getMatchedPattern() == null || !lastQ.getMatchedPattern().getLibraryName().equalsIgnoreCase( "CustomerQueryState")){
             return "ExpectationManagementState";
         }
 
