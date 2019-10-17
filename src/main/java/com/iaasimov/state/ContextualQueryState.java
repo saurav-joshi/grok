@@ -59,7 +59,7 @@ public class ContextualQueryState extends State {
 
         //if target fields only contains customerName then replace it with customer background else truncate customer name from the highlight term
 
-        String highlightTerms = targetFields.equalsIgnoreCase("customername") ? "customerBackground" : targetFields.replace("customername", " ");
+        String highlightTerms = targetFields.equalsIgnoreCase("customername") ? "customerBackground" : targetFields.replace("customername", "");
         con.getLatestQA().getAnswer().setHighlightTerms(highlightTerms);
 
         return "ResultState";
