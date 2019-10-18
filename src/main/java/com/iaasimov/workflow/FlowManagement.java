@@ -165,7 +165,10 @@ public class FlowManagement {
         List<EntityExtractionUtil.EntityExtractionResult> entityExtractionResults = entityExtractionUtil.extractEntity(patternWords.stream().toArray(String[]::new));
 
         List<EntityExtractionUtil.EntityExtractionResult> selectEEResults = EntityExtractionUtil.mergeIntervals(entityExtractionResults);
-        con.getLatestQA().setEntities(selectEEResults);
+        if(!selectEEResults.isEmpty() ){
+
+            con.getLatestQA().setEntities(selectEEResults);
+        }
         System.out.println("Entity Extraction: "+ entityExtractionResults);
         return con;
         //return this;
@@ -183,7 +186,9 @@ public class FlowManagement {
                 || !selectEEResults.stream().anyMatch(x -> x.getEntityName().equalsIgnoreCase(e.getEntityName()))
                 || e.getEntityName().equalsIgnoreCase("#oracle cloud")
                 || (e.getEntityName().equalsIgnoreCase("#location") & entityExtractionResults.stream().anyMatch(x -> e.getEntityName().equalsIgnoreCase("$location"))));
-        con.getLatestQA().setEntities(selectEEResults);
+        if(!selectEEResults.isEmpty()) {
+            con.getLatestQA().setEntities(selectEEResults);
+        }
         if(!entityExtractionResults.isEmpty()){
             Map<String,Set<String>> candidateMap = EntityExtractionUtil.getCandidateMap(entityExtractionResults);
             if(!candidateMap.isEmpty()){

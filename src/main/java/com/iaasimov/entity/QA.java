@@ -29,7 +29,7 @@ public class QA {
     List<String> cleanedQuestionPatternWords;
     Integer userId;
     Answer answer = new Answer();
-    List<EntityExtractionUtil.EntityExtractionResult> entities;
+    List<EntityExtractionUtil.EntityExtractionResult> entities = new ArrayList<>();
     int matchedPatternIdInLibrary;
     Date time;
     List<String> statePaths = new ArrayList<>();
@@ -43,6 +43,18 @@ public class QA {
         userKeytoSchemaValue.put("pain point", "businessPainPoints");
         userKeytoSchemaValue.put("benefit", "advantages");
 
+    }
+
+    public boolean isContextualQA(){
+        boolean isContextual = false;
+         boolean hasTargetField = this.getEntities().get(0)
+                .getEntityName().equalsIgnoreCase("$targetfields");
+         long numOfEntities =  this.getEntities().size();
+
+         if (numOfEntities == 1 && hasTargetField){
+             isContextual = true;
+         }
+         return isContextual;
     }
 
     public String highlightTerms(){
@@ -103,7 +115,11 @@ public class QA {
     }
 
     public void setEntities(List<EntityExtractionUtil.EntityExtractionResult> entities) {
-        this.entities = entities;
+        for (EntityExtractionUtil.EntityExtractionResult e: entities){
+            this.entities.add(e);
+        }
+
+        //this.entities = entities;
     }
 
     public void setCleanedQuestionPatternWords(List<String> cleanedQuestionPatternWords) {

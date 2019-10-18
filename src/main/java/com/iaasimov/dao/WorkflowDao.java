@@ -113,7 +113,10 @@ public class WorkflowDao {
                         });
                     }
                 });
-                qa.setEntities(entityExtractionResults);
+                if(!entityExtractionResults.isEmpty()){
+                    qa.setEntities(entityExtractionResults);
+                }
+
                 qa.setGeo(rs.getString("geo"));
                 qa.setMatchedPatternIdInLibrary(rs.getInt("library_id"));
                 //System.out.println("Library: " + rs.getInt("library_id"));

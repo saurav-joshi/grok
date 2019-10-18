@@ -82,3 +82,11 @@ Id	LibraryName	UserInputPattern	SystemMessage	PatternAtt	Type	Owner
 6754	CustomerQueryState	$product $actionword $country	Check these.		CustomerQuery.ClassMember	User
 6755	CustomerQueryState	$product $actionword	Check these.		CustomerQuery.ClassMember	User
 6756	CustomerQueryState	$product $country	Check these.		CustomerQuery.ClassMember	User
+6757	CustomerQueryState	$product $country	Check these.		CustomerQuery.ClassMember	User
+6758	CustomerQueryState	$product $industry	Check these.		CustomerQuery.ClassMember	User
+6759	CustomerQueryState	$product $industry $country	Check these.		CustomerQuery.ClassMember	User
+6760	CustomerQueryState	$product $region	Check these.		CustomerQuery.ClassMember	User
+6761	CustomerQueryState	$industry	Check these.		CustomerQuery.ClassMember	User
+6762	ContextualQueryState	$customerName 	Check these.		CustomerQuery.ClassMember	User
+6763	ContextualQueryState	$targetfield $customerName 	Check these.		CustomerQuery.ClassMember	User
+6764	ContextualQueryState	$targetfield 	Check these.		CustomerQuery.ClassMember	User

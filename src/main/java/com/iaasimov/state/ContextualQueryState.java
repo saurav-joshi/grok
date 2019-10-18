@@ -23,6 +23,7 @@ public class ContextualQueryState extends State {
     public void merrgeEntities(Conversation con){
         //Entity consolidation
         QA lastQ = con.getLastQA();
+
         List<EntityExtractionUtil.EntityExtractionResult> newEntitiesToAdd = new ArrayList<>();
         List<EntityExtractionUtil.EntityExtractionResult> currentEntities = con.getLatestQA().getEntities();
         for(EntityExtractionUtil.EntityExtractionResult oldEntity : lastQ.getEntities()){

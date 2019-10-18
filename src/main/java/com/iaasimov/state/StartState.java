@@ -26,6 +26,15 @@ public class StartState extends State {
     public String process(Conversation conversation) {
         try{
 
+            //case 000 first check for Contextual question...
+            if (conversation.getLatestQA().isContextualQA()) {
+                //conversation.getLatestQA().setMatchedPatternIdInLibrary(clarifyPattern.getId());
+
+                //pick the pattern dynamically else this will break if the PatternId is changed...
+                conversation.getLatestQA().setMatchedPatternIdInLibrary(6764);
+                return "ContextualQueryState";
+            }
+
             String question = String.join(" ", conversation.getLatestQA().getCleanedQuestionPatternWords());
 
             // check whether it is a clarification
@@ -152,6 +161,7 @@ public class StartState extends State {
 
         // Case 2: In case of multiple sentences in the question, match as one sentences, to handle the long patterns (e.g, multiple sentence as well)
         List<String> sentences = Parser.getSentencesfromText(question);
+
         if(sentences.size() > 1){
             Tuple2<LibraryUtil.Pattern, Double> matchOneSentence = matchSentencesWithPattern(Arrays.asList(question), conversation);
             System.out.println("Case 2: try with question pattern (one sentence):" + question + " --matching score:" + matchOneSentence._2);
