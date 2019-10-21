@@ -36,7 +36,7 @@ public class Constants {
     public static final String SERVICE_SIMILAR_QUERY = "domain";
     public static final String SERVICE_GENEREAL_RESPONSE = "docBody";
 
-    // name space for different tables
+    // name space for different com.iaasimov.tables
     public static String NAMESPACE_FIELD = "category";
     public static String NAMESPACE_VALUE_ORACLE_CLOUD = "OracleCloud";
     public static String NAMESPACE_VALUE_ORACLE_REST = "OracleOther";
