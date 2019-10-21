@@ -27,16 +27,20 @@ CREATE TABLE `workflow` (
   `conversation_id` int(11) DEFAULT NULL,
   `question` text,
   `answer` text,
-  `time_stamp` text,
-  `action_words` text,
-  `entity_list` text,
-  `country` text,
-  `location` text,
+  `choice` text,
+  `TIMESTAMP` text,
+  `$actionword` text,
+  `$country` text,
+  `$location` text,
+  `$refinelocation` text,
+  `$serviceFeature` text,
+  `$servicename` text,
+  `$pricerange` text,
   `geo` text,
   `library_id` int(11) DEFAULT NULL,
   `states` text,
   `suggestion` text,
-  `original_question` text,
+  `originalQuestion` text,
   `city` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -44,6 +48,12 @@ CREATE TABLE `workflow` (
 --
 -- Dumping data for table `workflow`
 --
+
+LOCK TABLES `workflow` WRITE;
+/*!40000 ALTER TABLE `workflow` DISABLE KEYS */;
+INSERT INTO `workflow` VALUES (65,89,'cloud at coustomer acronym','CA, SAR, PCMA, OEDA are common acronyms encountered in CAS terminology. ','','10-11-2017 08:15:09','','','','','','','',NULL,6642,'StartState,HelpState',NULL,'Cloud at coustomer acronym',NULL),(66,89,'cloud at coustomer acronym','CA, SAR, PCMA, OEDA are common acronyms encountered in CAS terminology. ','','10-11-2017 08:15:09','','','','','','','',NULL,6642,'StartState,HelpState',NULL,'Cloud at coustomer acronym',NULL);
+/*!40000 ALTER TABLE `workflow` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

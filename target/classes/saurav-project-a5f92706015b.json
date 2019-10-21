@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "saurav-project",
+  "private_key_id": "a5f92706015bbb4b20a7b9b632965cd11d56f2ad",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQChadOEBR1+eoMD\n1rUHjoUBckBcLxYVf2tIElcSsE88oQBd/lQabQO17rgNBBnrTQWrGFGMVixD+BdY\nzXx9JJKAFaLSK/CubG2RPsu8uUNx9p0DFAY6uest14kCIhiWojlcBNpiGvEIGKxL\nxBNi/1pWmRB/rA3c8KzKJrp/5cnp1jKpPEtUut7RMlH1YNZWnkd1xN/zbxLhPVSk\nvTW4ChDahV8lnl1toNtIRkXwKgU4BXMM3D6SlV8kbnM9LK7iNBiXqQvlmYZ276tw\nlnwbd+qWxGadHdr2WR4Ezf2fAXcdq9R4o73jtzcnFwmmK5hmG8kLOwxhi4FYZmjf\n9t/oNFaXAgMBAAECggEAF5A1LlYi0/EQNDIWnkz0vLJ66Rop7VHQYvvjwIOC0F/T\n3Q+AzpTF0GbSG9BSn6d69tr8zfGnJ6BNeYtnK3ZNzqtEks2S+/DciTIIwvsBTgne\n1PFfkW4iV2sErLjhLF2akFotroRZVcG9ppfamVPxUlKo9m0IXw22uRIF8srO+uGB\n3+VZO1JQwH82ZsPHxc61ey8T83egZLLG70rfvU0NS98JRpVkIDOfKDg6fkvF1faO\nE+hEM3zb6ezUZIS2Pe6GmJkyOif009ITJbbQAGk9+QgU/b4Voe56i5OoFVtgETC9\nDAyFYdUmjKbNA5/3OWHj7gI6XC8YKq7Pw0vuQT/LlQKBgQDPBvK7nG/aFJks2ajS\niyu19kC6mPb5K6Ez/sTEmEcHTwDbISeM9U5na3Eo7eBkhqTiHQJ/uJpgmcMRi5/Q\noQq+KN5247LwBznOnEsEf98DIGRD+7TZFQiMwnS6ck0Cv0xymmkubnYsar5Tfk3K\nPTNna3cHVZk6fRvl8GACdSAwZQKBgQDHmJ8mBBxwgFuKmkjcPmfYDs8kGnz98rG6\nC/JShFaMT1Dy4LqC6vhFuhJ7YmehB6u6kttO1uJBKXWaQERGcnKJQHcQxb5RKA8e\nrq7K0wCjyuTtNmXRSpLv7+NQABdYjmQRSp/UHVEfTyQ3auaSmaMMCCUo7obou1MU\nesxMvIh1SwKBgGeY54CAgOxVYG00IinxoJb2ul9lyjjX31wggiCKvwhmPVxqU9tS\nqcBQ4JiFqMNFKV9I+wYkv4PVjerKvtdsru6HjwNZYCKCyyebyGJhBp0O6X2niFEV\nGGkvqa/fILBeQAgdQsMMXbBOXh1z18N7Kqz29uJBsGK3Vm2TAshYChqNAoGANiJ3\n78inqf+2VFZaMpoeciQ6HFGu2vWrLIm29Jh+HNoaW3WGQKHYKpk4EAz1jGBXPGg+\nYRi5DvFeuzJ5Eh5SYFWCtaLcZoiV6T15nPszrjkGdCwP2379cWQ/49/SdStRirsR\ntGcrLHG7oeg1l0diSI4g/gQLxS2hb+mKZbmwzRcCgYEAwuEeH/Nju3TOVwpUGO5X\nzi+4qVFsbDMMPWLBirDLOLgfF9qtLeMZ49REkRmDCSt2aj8z3JSC3h+gQj2Uqrgh\ncvR/EroABaeKKmCHWXI3jWOEkgou62fXnXZQs+9WvnPWtCk0eHMuZuIjI8mmou1W\nic/R/Bc7eRHeP2wt+Mr/cKQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "saurav-lefty@saurav-project.iam.gserviceaccount.com",
+  "client_id": "109403111940361929724",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/saurav-lefty%40saurav-project.iam.gserviceaccount.com"
+}
