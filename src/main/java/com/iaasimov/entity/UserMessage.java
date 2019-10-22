@@ -8,9 +8,18 @@ public class UserMessage {
     String type;
     String latitude;
     String longitude;
-    String eMail;
+    String eMailName;
     String domain;
+    String userEmail;
     Boolean isSimilar;
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
 
     public String getDomain() {
         return domain;
@@ -21,11 +30,12 @@ public class UserMessage {
     }
 
     public String geteMail() {
-        return eMail;
+        return eMailName;
     }
 
     public void seteMail(String eMail) {
-        this.eMail = eMail.split("@")[0].replace(".", " ");
+        setUserEmail(eMail);
+        this.eMailName = eMail.split("@")[0].replace(".", " ");
     }
 
     public Boolean isSimilar() {

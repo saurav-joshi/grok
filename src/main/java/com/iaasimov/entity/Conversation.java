@@ -22,6 +22,16 @@ public class Conversation {
     int numOfShowMoreHasResult;
     int bookingRestaurantId =0;
     boolean isActivateBooking = false;
+    String eMail;
+
+    public String getUserEmail() {
+        return eMail;
+    }
+
+    public void setUserEmail(String eMail) {
+        this.eMail = eMail;
+    }
+
     static Map<String, List<ResultSet>> similarDomain = new HashMap<String, List<ResultSet>>();
 
     public Map<String, List<ResultSet>> getSimilarQuestionsforDomain() {

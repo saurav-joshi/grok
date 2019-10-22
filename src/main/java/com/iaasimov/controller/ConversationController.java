@@ -2,17 +2,17 @@ package com.iaasimov.controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.iaasimov.entity.QA;
 import com.iaasimov.data.repo.UserProfileRepo;
 import com.iaasimov.entity.*;
 import com.iaasimov.entityextraction.NegationDetector;
+import com.iaasimov.repository.WorkflowRepository;
+import com.iaasimov.tables.Workflow;
 import com.iaasimov.workflow.FlowManagement;
 import com.iaasimov.workflow.GeoCalculator;
 import com.iaasimov.data.model.UserProfile;
@@ -45,9 +45,13 @@ public class ConversationController extends BaseController {
     ConversationRepoImpl conversationCustomRepo;
     @Autowired
     NegationDetector negationDetector;
-
     @Autowired
     UserProfileRepoImpl userProfileRepoCustom;
+
+    @Autowired
+    WorkflowRepository workFlowRepo;
+
+
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test() {
@@ -102,9 +106,11 @@ public class ConversationController extends BaseController {
             con.setUserId(um.getToken());
             con.setUserName(up.getName());
             con.setEMailName(um.geteMail());
+            con.setUserEmail(um.getUserEmail());
             con.setQaList(new ArrayList<>());
         }
         con.setEMailName(um.geteMail());
+        con.setUserEmail(um.getUserEmail());
         con.setSimilar(um.isSimilar());
         con.setDomain(um.getDomain());
         boolean languageFlag = false;
@@ -150,8 +156,13 @@ public class ConversationController extends BaseController {
             answer = newUserGreeting(con);
         else if(um.getType().equalsIgnoreCase(TYPE.BEGIN.toString()))
             answer = userBeginGreeting(con);
-
+//////////////////////////////////////////////////////////////////////////////////////////////
         WorkflowDao.getInstance().insertListQA(con);
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
         //userProfileRepoCustom.saveUserProfile(UserProfiling.profiling(Collections.singletonList(con)));
         //tracking query from user success or fail
         if (answer.getMessage() == null) {
@@ -164,9 +175,33 @@ public class ConversationController extends BaseController {
         return answer;
     }
 
-//    private String marshallMessage(String m){
-//
-//    }
+    private boolean populateWorkflow(Conversation con){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        Workflow obj = new Workflow();
+        obj.setConversationId(con.getId());
+        QA qa = con.getLatestQA();
+        obj.setWorkflowId(qa.getId());
+        obj.setQuestion(qa.getQuestion());
+        obj.setOriginalQuestion(qa.getOriginalQuestion());
+        obj.setAnswer(qa.getAnswer().getMessage());
+        obj.setStates(qa.getStatePaths());
+        obj.setResultSet(qa.getAnswer().getResultIaaSimov());
+        obj.setEntityList(qa.getEntityString());
+        obj.setLibraryId(qa.getMatchedPatternIdInLibrary());
+        obj.setTimeStamp(dateFormat.format(qa.getTime()));
+        obj.setUserEmail(con.getUserEmail());
+
+//        List<String> resultIds = new ArrayList<>();
+//        List<ResultSet> results = qa.getAnswer().getResultIaaSimov();
+//        if(results != null)
+//            results.forEach(r -> {
+//                resultIds.add(r.getId());
+//            });
+//        String choice = String.join("||", resultIds);
+        return true;
+
+    }
+
 
     private String nativeLanguagueSupport(String question)
     {

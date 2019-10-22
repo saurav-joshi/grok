@@ -27,6 +27,7 @@ CREATE TABLE `workflow` (
   `conversation_id` int(11) DEFAULT NULL,
   `question` text,
   `answer` text,
+  `recommendations` text,
   `time_stamp` text,
   `action_words` text,
   `entity_list` text,
