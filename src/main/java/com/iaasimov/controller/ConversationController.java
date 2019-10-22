@@ -52,18 +52,6 @@ public class ConversationController extends BaseController {
     WorkflowRepository workFlowRepo;
 
 
-
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test() {
-        //com.oracle.iaasimov.data.model.Conversation conversation=conversationRepo.findByUserProfileUserId("14f329be-bcb4-4f61-868a-bb53474c6795");
-        com.iaasimov.data.model.Conversation conversation_nw = new com.iaasimov.data.model.Conversation();
-        conversation_nw.setUserProfile(userProfileRepo.findOne("14f329be-bcb4-4f61-868a-bb53474c6795"));
-        conversationRepo.save(conversation_nw);
-        String test = "tell me about Oracle cloud";
-        String keyword = "Oracle cloud";
-        System.out.println(negationDetector.isNegation(test.split("\\s+"),negationDetector.negationScope(test.split("\\s+")),keyword.split("\\s+")));
-    	return conversation_nw.getConversationId()+"";
-    }
     @RequestMapping(value = "/query", method = RequestMethod.POST)
     public Object receive(@RequestBody UserMessage um, HttpServletResponse res) {
         System.out.println("---------------->>Collecting user profile<<----------------");
@@ -157,7 +145,8 @@ public class ConversationController extends BaseController {
         else if(um.getType().equalsIgnoreCase(TYPE.BEGIN.toString()))
             answer = userBeginGreeting(con);
 //////////////////////////////////////////////////////////////////////////////////////////////
-        WorkflowDao.getInstance().insertListQA(con);
+        //WorkflowDao.getInstance().insertListQA(con);
+        populateWorkflow(con);
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -165,11 +154,12 @@ public class ConversationController extends BaseController {
 
         //userProfileRepoCustom.saveUserProfile(UserProfiling.profiling(Collections.singletonList(con)));
         //tracking query from user success or fail
-        if (answer.getMessage() == null) {
-        	trackingRequest(um.getToken(), false);
-        } else {
-        	trackingRequest(um.getToken(), true);
-        }
+
+//        if (answer.getMessage() == null) {
+//        	trackingRequest(um.getToken(), false);
+//        } else {
+//        	trackingRequest(um.getToken(), true);
+//        }
 
         res.setStatus(HttpServletResponse.SC_OK);
         return answer;
@@ -185,19 +175,22 @@ public class ConversationController extends BaseController {
         obj.setOriginalQuestion(qa.getOriginalQuestion());
         obj.setAnswer(qa.getAnswer().getMessage());
         obj.setStates(qa.getStatePaths());
-        obj.setResultSet(qa.getAnswer().getResultIaaSimov());
+        //obj.setResultSet(qa.getAnswer().getResultIaaSimov());
         obj.setEntityList(qa.getEntityString());
         obj.setLibraryId(qa.getMatchedPatternIdInLibrary());
         obj.setTimeStamp(dateFormat.format(qa.getTime()));
         obj.setUserEmail(con.getUserEmail());
 
-//        List<String> resultIds = new ArrayList<>();
-//        List<ResultSet> results = qa.getAnswer().getResultIaaSimov();
-//        if(results != null)
-//            results.forEach(r -> {
-//                resultIds.add(r.getId());
-//            });
-//        String choice = String.join("||", resultIds);
+        workFlowRepo.save(obj);
+
+        List<String> resultIds = new ArrayList<>();
+        List<ResultSet> results = qa.getAnswer().getResultIaaSimov();
+        if(results != null)
+            results.forEach(r -> {
+                resultIds.add(r.getId());
+            });
+        String choice = String.join("||", resultIds);
+        obj.setResultSet(choice);
         return true;
 
     }

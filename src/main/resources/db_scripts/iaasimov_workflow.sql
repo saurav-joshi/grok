@@ -22,11 +22,12 @@
 DROP TABLE IF EXISTS `workflow`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `workflow` (
-  `workflow_id` int(11) DEFAULT NULL,
+CREATE TABLE iaasimov.workflow (
+  `workflow_id` int(11) NOT NULL auto_increment,
   `conversation_id` int(11) DEFAULT NULL,
   `question` text,
   `answer` text,
+  `user_email` text,
   `recommendations` text,
   `time_stamp` text,
   `action_words` text,
@@ -38,9 +39,9 @@ CREATE TABLE `workflow` (
   `states` text,
   `suggestion` text,
   `original_question` text,
-  `city` text
+  `city` text,customer_querycustomer_querycustomer_query
+  primary key (`workflow_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `workflow`

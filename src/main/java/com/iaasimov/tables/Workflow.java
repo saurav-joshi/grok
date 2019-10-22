@@ -3,6 +3,7 @@ package com.iaasimov.tables;
 import com.iaasimov.entity.ResultSet;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,7 +30,7 @@ public class Workflow {
     @Column(name = "time_stamp", unique = true)
     private String timeStamp;
     @Column(name = "states")
-    private List<String> states;
+    private String states ;
     @Column(name = "suggestion")
     private String suggestion;
     @Column(name = "city")
@@ -41,13 +42,13 @@ public class Workflow {
     @Column(name = "geo")
     private String geo;
     @Column(name = "recommendations")
-    private List<ResultSet> resultSet;
+    private String resultSet;
 
-    public List<ResultSet> getResultSet() {
+    public String getResultSet() {
         return resultSet;
     }
 
-    public void setResultSet(List<ResultSet> resultSet) {
+    public void setResultSet(String resultSet) {
         this.resultSet = resultSet;
     }
 
@@ -123,12 +124,12 @@ public class Workflow {
         this.timeStamp = timeStamp;
     }
 
-    public List<String> getStates() {
+    public String getStates() {
         return states;
     }
 
     public void setStates(List<String> states) {
-        this.states = states;
+        this.states = String.join(",", states);
     }
 
     public String getSuggestion() {

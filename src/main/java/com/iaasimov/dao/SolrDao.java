@@ -4,11 +4,13 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrRequest;
 import org.apache.solr.client.solrj.SolrServerException;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.request.UpdateRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -18,10 +20,13 @@ import java.util.StringJoiner;
 public class SolrDao <T>{
 
     SolrClient server = null;
+    @Value("${infra.solr.url}")
+    private String mysolrUrl;
 
     public SolrDao (String solrURL)
     {
-        server = SolrServerFactory.getInstance().createServer(solrURL);
+
+        server = new HttpSolrClient.Builder(solrURL).build();
         configureSolr (server);
     }
 
