@@ -1,10 +1,11 @@
 package com.iaasimov.tables;
 
-import com.iaasimov.entity.ResultSet;
-
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name="workflow")
@@ -116,16 +117,16 @@ public class Workflow {
         this.userEmail = userEmail;
     }
 
-    public String getTimeStamp() {
-        return timeStamp;
+    public Date getTimeStamp() {
+        return new Date(timeStamp);
     }
 
     public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 
-    public String getStates() {
-        return states;
+    public List<String> getStates() {
+        return Arrays.stream(states.split(",")).collect(Collectors.toList());
     }
 
     public void setStates(List<String> states) {

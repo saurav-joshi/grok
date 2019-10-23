@@ -77,7 +77,11 @@ public class ConversationController extends BaseController {
     	}
 
         System.out.println("---------------->>     Question: "+ um.getQuestion()+ "     <<----------------");
-        com.iaasimov.entity.Conversation con = conversationCustomRepo.findCustomConByUserId(um.getToken());
+        //com.iaasimov.entity.Conversation con = conversationCustomRepo.findCustomConByUserId(um.getToken());
+
+        List<Workflow> lwFlow = workFlowRepo.findByuserEmail(um.getUserEmail());
+        com.iaasimov.entity.Conversation con = conversationCustomRepo.findConversationbyEmail(um.getUserEmail());
+
 
         Random rand = new Random();
         if (con == null) {
@@ -87,10 +91,11 @@ public class ConversationController extends BaseController {
             userProfileModel.setUserId(um.getToken());
 
             conversationModel.setUserProfile(userProfileModel);
-            conversationRepo.save(conversationModel);
+           // conversationRepo.save(conversationModel);
 
             con = new com.iaasimov.entity.Conversation();
-            con.setId((int)conversationRepo.findByUserProfileUserId(um.getToken()).getConversationId());
+            //con.setId((int)conversationRepo.findByUserProfileUserId(um.getToken()).getConversationId());
+            con.setId((int) workFlowRepo.maxConversationId());
             con.setUserId(um.getToken());
             con.setUserName(up.getName());
             con.setEMailName(um.geteMail());

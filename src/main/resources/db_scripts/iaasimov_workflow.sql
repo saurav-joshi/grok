@@ -39,7 +39,7 @@ CREATE TABLE iaasimov.workflow (
   `states` text,
   `suggestion` text,
   `original_question` text,
-  `city` text,customer_querycustomer_querycustomer_query
+  `city` text,
   primary key (`workflow_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
