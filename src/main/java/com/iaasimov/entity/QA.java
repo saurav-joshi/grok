@@ -115,11 +115,11 @@ public class QA {
     }
 
     public void setEntities(List<EntityExtractionUtil.EntityExtractionResult> entities) {
-        for (EntityExtractionUtil.EntityExtractionResult e: entities){
-            this.entities.add(e);
-        }
+//        for (EntityExtractionUtil.EntityExtractionResult e: entities){
+//            this.entities.add(e);
+//        }
 
-        //this.entities = entities;
+        this.entities = entities;
     }
 
     public void setCleanedQuestionPatternWords(List<String> cleanedQuestionPatternWords) {

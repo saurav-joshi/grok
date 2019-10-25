@@ -70,6 +70,7 @@ public class ConversationRepoImpl implements ConversationRepoCustom {
         qa.setCity(w.getCity());
         //qa.setTime(w.getTimeStamp());
         qa.setStatePaths(w.getStates());
+        qa.setMatchedPatternIdInLibrary((int) w.getLibraryId());
         List<EntityExtractionUtil.EntityExtractionResult> entities = populateEntities(w);
         qa.setEntities(entities);
 
