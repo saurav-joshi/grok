@@ -42,6 +42,9 @@ public class QA {
         userKeytoSchemaValue.put("deal size", "dealSize");
         userKeytoSchemaValue.put("pain point", "businessPainPoints");
         userKeytoSchemaValue.put("benefit", "advantages");
+        userKeytoSchemaValue.put("advantage", "advantages");
+        userKeytoSchemaValue.put("objection", "keyObjections");
+        userKeytoSchemaValue.put("objections", "keyObjections");
 
     }
 
