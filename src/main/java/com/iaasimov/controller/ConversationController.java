@@ -54,27 +54,27 @@ public class ConversationController extends BaseController {
 
     @RequestMapping(value = "/query", method = RequestMethod.POST)
     public Object receive(@RequestBody UserMessage um, HttpServletResponse res) {
-        System.out.println("---------------->>Collecting user profile<<----------------");
-        com.iaasimov.entity.UserProfile up = userProfileRepoCustom.findByUserIdCustom(um.getToken());
-    	if (up == null) {
-    		res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-    		//return getRespErr("Invalid token key.");
-    	}
-    	if (!contains(um.getType())) {
-    		res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-    		return getRespErr("Invalid type key.");
-    	}
-    	if (TYPE.QUERY.toString().equalsIgnoreCase(um.getType()) && (um.getQuestion() == null || um.getQuestion().trim().equals(""))
-                && (um.getLatitude() == null || um.getLatitude().trim().equals("") || um.getLongitude() == null || um.getLongitude().trim().equals(""))) {
-    		res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-    		return getRespErr("Please ask any questions.");
-    	}
-
-    	// check number of request limited
-    	if (isRequestLimited(um.getToken())) {
-    		res.setStatus(HttpServletResponse.SC_PAYMENT_REQUIRED);
-    		return getRespErr("Your application is expired. Please contact your admin.");
-    	}
+//        System.out.println("---------------->>Collecting user profile<<----------------");
+//        com.iaasimov.entity.UserProfile up = userProfileRepoCustom.findByUserIdCustom(um.getToken());
+//    	if (up == null) {
+//    		res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//    		//return getRespErr("Invalid token key.");
+//    	}
+//    	if (!contains(um.getType())) {
+//    		res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//    		return getRespErr("Invalid type key.");
+//    	}
+//    	if (TYPE.QUERY.toString().equalsIgnoreCase(um.getType()) && (um.getQuestion() == null || um.getQuestion().trim().equals(""))
+//                && (um.getLatitude() == null || um.getLatitude().trim().equals("") || um.getLongitude() == null || um.getLongitude().trim().equals(""))) {
+//    		res.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//    		return getRespErr("Please ask any questions.");
+//    	}
+//
+//    	// check number of request limited
+//    	if (isRequestLimited(um.getToken())) {
+//    		res.setStatus(HttpServletResponse.SC_PAYMENT_REQUIRED);
+//    		return getRespErr("Your application is expired. Please contact your admin.");
+//    	}
 
         System.out.println("---------------->>     Question: "+ um.getQuestion()+ "     <<----------------");
         //com.iaasimov.entity.Conversation con = conversationCustomRepo.findCustomConByUserId(um.getToken());
@@ -86,18 +86,18 @@ public class ConversationController extends BaseController {
         Random rand = new Random();
         if (con == null) {
             com.iaasimov.data.model.Conversation conversationModel = new com.iaasimov.data.model.Conversation();
-            UserProfile userProfileModel = new UserProfile();
-            userProfileModel.setName(up.getName());
-            userProfileModel.setUserId(um.getToken());
+            //UserProfile userProfileModel = new UserProfile();
+            //userProfileModel.setName(up.getName());
+            //userProfileModel.setUserId(um.getToken());
 
-            conversationModel.setUserProfile(userProfileModel);
+            //conversationModel.setUserProfile(userProfileModel);
            // conversationRepo.save(conversationModel);
 
             con = new com.iaasimov.entity.Conversation();
             //con.setId((int)conversationRepo.findByUserProfileUserId(um.getToken()).getConversationId());
             con.setId((int) workFlowRepo.maxConversationId());
             con.setUserId(um.getToken());
-            con.setUserName(up.getName());
+            //con.setUserName(up.getName());
             con.setEMailName(um.geteMail());
             con.setUserEmail(um.getUserEmail());
             con.setQaList(new ArrayList<>());
