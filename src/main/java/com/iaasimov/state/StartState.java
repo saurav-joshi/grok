@@ -201,6 +201,10 @@ public class StartState extends State {
             }
         }
 
+        if(sentenceScoreMap.isEmpty()){
+            return new Tuple2<>(LibraryUtil.getRandomPatternByQuestionClass("DefaultQuery.ClassMember"), 0.0);
+        }
+
         // get the sentence with the highest score
         if(sentenceScoreMap.get(maxSentence).stream().map(x->x._1.getLibraryName()).distinct().count() == 1){
             System.out.println("******* Single pattern state is matched *******" );

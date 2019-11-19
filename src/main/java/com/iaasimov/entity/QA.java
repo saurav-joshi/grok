@@ -50,13 +50,16 @@ public class QA {
 
     public boolean isContextualQA(){
         boolean isContextual = false;
-         boolean hasTargetField = this.getEntities().get(0)
-                .getEntityName().equalsIgnoreCase("$targetfields");
-         long numOfEntities =  this.getEntities().size();
 
-         if (numOfEntities == 1 && hasTargetField){
-             isContextual = true;
-         }
+        if(this.getEntities().size() > 0) {
+            boolean hasTargetField = this.getEntities().get(0)
+                    .getEntityName().equalsIgnoreCase("$targetfields");
+            long numOfEntities = this.getEntities().size();
+
+            if (numOfEntities == 1 && hasTargetField) {
+                isContextual = true;
+            }
+        }
          return isContextual;
     }
 
