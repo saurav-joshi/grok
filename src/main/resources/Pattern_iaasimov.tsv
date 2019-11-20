@@ -91,3 +91,6 @@ Id	LibraryName	UserInputPattern	SystemMessage	PatternAtt	Type	Owner
 6763	ContextualQueryState	$targetfield $customerName 	Check these.		CustomerQuery.ClassMember	User
 6764	ContextualQueryState	$targetfield 	Check these.		CustomerQuery.ClassMember	User
 6765	DefaultQueryState	Google like search  	Check these.		DefaultQuery.ClassMember	User
+6766	CustomerQueryState	$product $division	Check these.		CustomerQuery.ClassMember	User
+6767	CustomerQueryState	$product $industry $division	Check these.		CustomerQuery.ClassMember	User
+6768	CustomerQueryState	$product $industry $region	Check these.		CustomerQuery.ClassMember	User
