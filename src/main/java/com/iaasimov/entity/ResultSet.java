@@ -26,6 +26,24 @@ public class ResultSet {
     String businessPainPoints;
     String useCaseType;
     String displayCustomerName;
+    String displayCountryName;
+    String division;
+
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+    public String getDisplayCountryName() {
+        return displayCountryName;
+    }
+
+    public void setDisplayCountryName(String displayCountryName) {
+        this.displayCountryName = displayCountryName;
+    }
 
     public String getDisplayCustomerName() {
         return displayCustomerName;
@@ -209,8 +227,9 @@ public class ResultSet {
     }
 
     public ResultSet(String id, String product, String country,
-                     String region, String industry, String ec,
-                     String csm,String customer,String detailedCustomerName,
+                     String division, String region, String industry,
+                     String ec, String csm,String customer,
+                     String detailedCustomerName, String displayCountryName,
                      String url, List<String> urlList,String usecase, String businessUsecase,
                      String docHandle, String similarResult,String docBody,
                      String dealSize, String advantages, String keyObjections,
@@ -218,12 +237,14 @@ public class ResultSet {
         this.id = id;
         this.product = product;
         this.country = country;
+        this.division= division;
         this.region = region;
         this.industry = industry;
         this.emotionalConnect = ec;
         this.csm = csm;
         this.customer = customer;
         this.displayCustomerName = detailedCustomerName;
+        this.displayCountryName = displayCountryName;
         this.url =url;
         this.urlList =urlList;
         this.usecase = usecase;
@@ -245,12 +266,14 @@ public class ResultSet {
         System.out.println("-Id:" + id);
         System.out.println("-Product: " + product);
         System.out.println("-Country: " + country);
+        System.out.println("-Region: " + division);
         System.out.println("-Region: " + region);
         System.out.println("-Industry: " + industry);
         System.out.println("-Emotional Connect: " + emotionalConnect);
         System.out.println("-CSM: " + csm);
         System.out.println("-Customer: " + customer);
         System.out.println("-Customer: " + displayCustomerName);
+        System.out.println("-Customer: " + displayCountryName);
         System.out.println("-URL: " + url);
         System.out.println("-URList: " + urlList);
         System.out.println("-UseCase: " + usecase);

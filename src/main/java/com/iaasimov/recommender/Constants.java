@@ -7,6 +7,7 @@ public class Constants {
     public static final String SERVICE_ID_FIELD = "id";
     public static final String SERVICE_PRODUCT_FIELD = "product";
     public static final String SERVICE_REGION_FIELD = "region";
+    public static final String SERVICE_DIVISION_FIELD = "division";
     public static final String SERVICE_COUNTRY_FIELD = "country";
     public static final String SERVICE_INDUSTRY_FIELD = "industry";
     public static final String SERVICE_EMOTIONAL_CONNECT_FIELD = "emotional_connect";
@@ -14,6 +15,7 @@ public class Constants {
     public static final String SERVICE_USECASE_DETAILS_FIELD = "use_case_details";
     public static final String SERVICE_CUSTOMER_FIELD = "customer_name";
     public static final String SERVICE_DISPLAY_CUSTOMER_FIELD = "display_customer_name";
+    public static final String SERVICE_DISPLAY_COUNTRY_FIELD = "display_country";
     public static final String SERVICE_CUSTOMER_OUTCOMR_FIELD = "customer_outcome";
     public static final String SERVICE_CSM_FIELD = "csm";
     public static final String SERVICE_LAST_MODIFIED_FIELD = "last_modified";

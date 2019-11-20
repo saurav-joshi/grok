@@ -181,6 +181,13 @@ public class Recommender<T> {
                         break;
                     }
 
+                    case "$division": {
+//                        value = FlowManagement.contextToEntityMapping.getOrDefault(value,value);
+                        //if(isProfileing) value = value.replaceAll("\\b(in|on|near|within|along|close to|at|around|next to|across|to)\\b", "").trim();
+                        properties.computeIfAbsent(Constants.SERVICE_DIVISION_FIELD, v -> new ArrayList<>()).add(value);
+                        break;
+                    }
+
                     case "$country": {
                         value = value.replace(" price","");
                         properties.computeIfAbsent(Constants.SERVICE_COUNTRY_FIELD, v -> new ArrayList<>()).add(value);

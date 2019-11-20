@@ -28,10 +28,11 @@ public class ResultSetDao extends SolrDao {
     Map<String, String> tagWeights = null;
 
     private List<String> metaFieldsList = Arrays.asList(Constants.SERVICE_PRODUCT_FIELD,
-            Constants.SERVICE_REGION_FIELD, Constants.SERVICE_COUNTRY_FIELD,
-            Constants.SERVICE_INDUSTRY_FIELD,
+            Constants.SERVICE_DIVISION_FIELD, Constants.SERVICE_REGION_FIELD,
+            Constants.SERVICE_COUNTRY_FIELD, Constants.SERVICE_INDUSTRY_FIELD,
             Constants.SERVICE_USECASE_FIELD, Constants.SERVICE_CUSTOMER_FIELD,
-            Constants.SERVICE_DISPLAY_CUSTOMER_FIELD, Constants.SERVICE_EMOTIONAL_CONNECT_FIELD,
+            Constants.SERVICE_DISPLAY_CUSTOMER_FIELD, Constants.SERVICE_DISPLAY_COUNTRY_FIELD
+            ,Constants.SERVICE_EMOTIONAL_CONNECT_FIELD,
             Constants.SERVICE_CSM_FIELD,
             Constants.SERVICE_GENEREAL_QUERY,
             Constants.SERVICE_ENTITIES_QUERY,
