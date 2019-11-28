@@ -73,12 +73,12 @@ public class ResultState extends State {
         }   else if (con.getLatestAnswer().getResultIaaSimov().size() < Constants.DEFAULT_PAGE_SIZE) {
             //String numResults = String.valueOf(conversation.getLatestAnswer().getResultRestaurants().size());
 
-            String messagePattern = con.currentState().equalsIgnoreCase("DefaultState") ? message: LibraryUtil.getRandomPatternByQuestionClass("Result.Single")
+            String messagePattern = con.currentState().equalsIgnoreCase("SalesHelpState") ? message: LibraryUtil.getRandomPatternByQuestionClass("Result.Single")
                                                                                                .getSystemMessage()
                                                                                                .replace("%Number", numResults);
             con.getLatestAnswer().setMessage(messagePattern);
         } else if (con.getLatestStatePaths().contains("UserRefineState")) {
-            String messagePattern = con.currentState().equalsIgnoreCase("DefaultState") ? message : LibraryUtil.getRandomPatternByQuestionClass("Result.Refine")
+            String messagePattern = con.currentState().equalsIgnoreCase("SalesHelpState") ? message : LibraryUtil.getRandomPatternByQuestionClass("Result.Refine")
                                                                                                 .getSystemMessage();
             String filledMessage = createMessageForUserRefine(messagePattern, con);
             con.getLatestAnswer().setMessage(String.join(" ", filledMessage));
@@ -87,7 +87,7 @@ public class ResultState extends State {
             String preMess = "";
             QA secondLastQA = con.getQaList().size() < 2 ? null : con.getQaList().get(con.getQaList().size() - 2);
 
-            String messagePattern = con.currentState().equalsIgnoreCase("DefaultState") ? message : LibraryUtil.getRandomPatternByQuestionClass("Result.General")
+            String messagePattern = con.currentState().equalsIgnoreCase("SalesHelpState") ? message : LibraryUtil.getRandomPatternByQuestionClass("Result.General")
                                                                                                 .getSystemMessage()
                                                                                                 .replaceAll("%Number", numResults);
             if (con.getLocationExpand()) {
