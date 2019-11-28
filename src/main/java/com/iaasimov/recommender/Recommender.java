@@ -226,7 +226,8 @@ public class Recommender<T> {
                         properties.computeIfAbsent(Constants.SERVICE_GENEREAL_QUERY, v -> new ArrayList<>()).add(value);
                         break;
                     }
-                    case "$entities": {
+                    case "$entities":
+                    case "$requesttype": {
                         properties.computeIfAbsent(Constants.SERVICE_ENTITIES_QUERY, v -> new ArrayList<>()).add(value);
                         break;
                     }

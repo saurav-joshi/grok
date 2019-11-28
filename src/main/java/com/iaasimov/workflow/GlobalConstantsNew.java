@@ -34,6 +34,7 @@ public class GlobalConstantsNew {
       this.avLocation = auxiliaryVocab + "/" + env.getProperty("infra.objectStore.auxiliaryVocab.location");
       this.avCoverage = auxiliaryVocab + "/" + env.getProperty("infra.objectStore.auxiliaryVocab.coverage");
       this.iaaSimovStates= Arrays.asList(env.getProperty("app.iaasimov.states").split("\\s*,\\s*"));
+      this.salesHelpManagers= Arrays.asList(env.getProperty("app.iaasimov.managers").split("\\s*,\\s*"));
       this.accessKey= env.getProperty("infra.objectStore.accessKey");
 
       this.secretKey= env.getProperty("infra.objectStore.secretKey");
@@ -60,6 +61,7 @@ public class GlobalConstantsNew {
     public List<String>stemExSuffix;
     public List<String>stemExWords;
     public List<String>iaaSimovStates;
+    public List<String>salesHelpManagers;
     public String accessKey;
     public String secretKey;
     public String stemExWordL;
