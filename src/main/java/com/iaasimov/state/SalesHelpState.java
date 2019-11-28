@@ -39,7 +39,8 @@ public class SalesHelpState extends State {
     private String nonManagerResponse(Conversation con){
         ResultSet r = new ResultSet("default");
         r.setDocBody("I am sorry but you are not a sales manager yet. You can however check your sales opportunities by clicking");
-        r.setUrlList(Collections.singletonList("https://eeho.fa.us2.oraclecloud.com/crmUI/faces/FuseOverview?_afrLoop=3704321858615609&fndGlobalItemNodeId=c_345c1f032aae4c5b99e3dc8294504608&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=sgq52cv54_183\\"));
+        //r.setUrlList(Collections.singletonList("https://eeho.fa.us2.oraclecloud.com/crmUI/faces/FuseOverview?_afrLoop=3704321858615609&fndGlobalItemNodeId=c_345c1f032aae4c5b99e3dc8294504608&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=sgq52cv54_183\\"));
+        r.setUrlList(Collections.singletonList("{\n\t\t\t\"url\": \"https://eeho.fa.us2.oraclecloud.com/crmUI/faces/FuseOverview?_afrLoop=3704321858615609&fndGlobalItemNodeId=c_345c1f032aae4c5b99e3dc8294504608&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=sgq52cv54_183\",\n\"name\": \"Sales opportunities\",\n\"additionalInfo\": \"Click on <img src=\\\"img/func_fieldsfilter_16_ena.png\\\"> after login.\"\n}"));
         con.getLatestQA().getAnswer().setResultIaaSimov(Collections.singletonList(r));
         return "ResultState";
 
