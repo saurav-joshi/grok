@@ -26,7 +26,10 @@ public class SalesHelpState extends State {
         boolean isManager=true;
 
         for(EntityExtractionUtil.EntityExtractionResult e : con.getLatestEntities()){
-            if(e.getEntityValue().equals("assign service request") && !managersList.contains(con.getUserEmail()))
+            String temp = String.join(" ", e.getEntityValue());
+            if(temp.equalsIgnoreCase("assign service request")
+                    || temp.equalsIgnoreCase("assign sales request")
+                    && !managersList.contains(con.getUserEmail()))
                 isManager =false;
         }
         return isManager;
