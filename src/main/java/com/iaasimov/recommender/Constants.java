@@ -14,6 +14,7 @@ public class Constants {
     public static final String SERVICE_USECASE_FIELD = "use_case";
     public static final String SERVICE_USECASE_DETAILS_FIELD = "use_case_details";
     public static final String SERVICE_CUSTOMER_FIELD = "customer_name";
+    public static final String SERVICE_FLYING_CITY_FIELD = "flying_city";
     public static final String SERVICE_DISPLAY_CUSTOMER_FIELD = "display_customer_name";
     public static final String SERVICE_DISPLAY_COUNTRY_FIELD = "display_country";
     public static final String SERVICE_CUSTOMER_OUTCOMR_FIELD = "customer_outcome";

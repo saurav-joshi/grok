@@ -239,6 +239,10 @@ public class Recommender<T> {
                         properties.computeIfAbsent(Constants.SERVICE_CUSTOMER_FIELD, v -> new ArrayList<>()).add(value);
                         break;
                     }
+                    case "$flyingcity": {
+                        properties.computeIfAbsent(Constants.SERVICE_FLYING_CITY_FIELD, v -> new ArrayList<>()).add(value);
+                        break;
+                    }
 
                     // todo: add more dimensions here if needed
                 }
