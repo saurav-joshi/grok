@@ -9,5 +9,4 @@ Id	LibraryName	UserInputPattern	SystemMessage	PatternAtt	Type	Owner
 6881	ResultState		Gotcha! There are %Number Customers and counting. Click the like button if i've nailed it.		Result.General	System
 6882	ResultState		%Number total results. Click "Like" if these work. ^_^		Result.General	System
 6883	ResultState		%Number Customers and counting. BTW I can also tell you who they are. Ask me following-- Show me all ADW customers :) 		Result.Count	System
-6884	AirlinesState	$flyingcity $fl
-yingcity	Check these.		CustomerQuery.ClassMember	User
+6884	AirlinesState	$flyingcity $flyingcity	Check these.		CustomerQuery.ClassMember	User
