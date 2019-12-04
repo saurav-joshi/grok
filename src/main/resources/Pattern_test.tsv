@@ -1,14 +1,12 @@
 Id	LibraryName	UserInputPattern	SystemMessage	PatternAtt	Type	Owner
-6752	CustomerQueryState	$actionword $product customer $verb $country	Check these.		CustomerQuery.ClassMember	User
+6752	CustomerQueryState	product $industry $division	Check these.		CustomerQuery.ClassMember	User
 6754	CustomerQueryState	$product $actionword $country	Check these.		CustomerQuery.ClassMember	User
 6755	CustomerQueryState	$product $actionword	Check these.		CustomerQuery.ClassMember	User
+6785	CustomerQueryState	$product $country	Check these.		CustomerQuery.ClassMember	User
 6756	ContextualQueryState	$customerName 	Check these.		CustomerQuery.ClassMember	User
-6875	ResultState		%Number Customers and counting.		Result.Single	System
-6876	ResultState		Found %Number customers for you!		Result.Single	System
-6877	ResultState		%Number Customers and counting.		Result.Single	System
-6878	ResultState		Found %Number ADW early adopters and counting.		Result.Single	System
-6879	ResultState		Found %Number Customers . Click "Like" if I got it right!		Result.General	System
-6880	ResultState		Got %Number results! Hit like if these work. ;)		Result.General	System
+6875	ResultState		%Number Carriers to choose from.		Result.Single	System
+6876	ResultState		Found %Number airlines for you!		Result.Single	System
 6881	ResultState		Gotcha! There are %Number Customers and counting. Click the like button if i've nailed it.		Result.General	System
 6882	ResultState		%Number total results. Click "Like" if these work. ^_^		Result.General	System
 6883	ResultState		%Number Customers and counting. BTW I can also tell you who they are. Ask me following-- Show me all ADW customers :) 		Result.Count	System
+6884	AirlinesState	$flyingcity $flyingcity	Check these.		CustomerQuery.ClassMember	User

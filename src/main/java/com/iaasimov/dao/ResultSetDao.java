@@ -36,6 +36,7 @@ public class ResultSetDao extends SolrDao {
             Constants.SERVICE_CSM_FIELD,
             Constants.SERVICE_GENEREAL_QUERY,
             Constants.SERVICE_ENTITIES_QUERY,
+            Constants.SERVICE_FLYING_CITY_FIELD,
             Constants.SERVICE_SIMILAR_QUERY,
             Constants.SERVICE_GENEREAL_RESPONSE);
 

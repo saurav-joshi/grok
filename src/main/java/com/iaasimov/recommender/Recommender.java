@@ -239,6 +239,10 @@ public class Recommender<T> {
                         properties.computeIfAbsent(Constants.SERVICE_CUSTOMER_FIELD, v -> new ArrayList<>()).add(value);
                         break;
                     }
+                    case "$flyingcity": {
+                        properties.computeIfAbsent(Constants.SERVICE_FLYING_CITY_FIELD, v -> new ArrayList<>()).add(value);
+                        break;
+                    }
 
                     // todo: add more dimensions here if needed
                 }
@@ -391,7 +395,7 @@ public class Recommender<T> {
         // dispatch properties
         if(properties != null && properties.size() != 0) {
             for(Map.Entry<String,List<String>> entry : properties.entrySet()){
-                String propertyKey = entry.getKey();
+                    String propertyKey = entry.getKey();
                 List<String> propertyValues = entry.getValue();
                 if(propertyKey == Constants.SERVICE_ID_FIELD){
                     if(query.getTarget() == Constants.RecommenderTarget.CLOUD_SERVICES){
