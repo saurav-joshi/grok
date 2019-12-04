@@ -11,7 +11,6 @@ pcma	public cloud machine assistant
 oeda	oracle exadata deployment assistance
 c@c||cac	cloud at customer
 rerack||re rack	re-rack
-term||term of service||tos||minimum term||	susbscription
 compute service||compute cs	compute
 infrastructure as a service|| infrastructure as service	iaas
 platform as a service|| platform as service	paas
@@ -40,4 +39,5 @@ database administrator	DBA
 health-care||health care	healthcare
 England||britain||Great Britain	UK
 Customer Engagement Planning||Customer Engagement Planning	cep
-assign a sales request||assign a service request	assign service request
+assign a	assign
+term||term of service||tos||minimum term||	susbscription
